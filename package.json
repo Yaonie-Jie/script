@@ -1,0 +1,25 @@
+{
+  "name": "xiaoyu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "crontab": "crontab crontab_list.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yaonie-Jie/script.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yaonie-Jie"
+  },
+  "dependencies": {
+    "crypto-js": "^4.0.0",
+    "got": "^11.8.0",
+    "http-server": "^0.12.3",
+    "tough-cookie": "^4.0.0"
+  }
+}
