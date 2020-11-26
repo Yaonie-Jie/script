@@ -6,5 +6,5 @@
 
 
 
-55 23 */1 * * rm -rf /root/xmly_speed/*.log
-55 23 */1 * * rm -rf /root/script/log/*.log
+55 23 * * * rm -rf /root/xmly_speed/*.log
+55 23 * * * rm -rf /root/script/log/*.log
