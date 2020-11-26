@@ -655,6 +655,9 @@ function qqreadpick() {
 }
 
 function showmsg() {
+  tz += `\n\n脚本执行- 北京时间(UTC+8)：${new Date(
+    new Date().getTime() + 8 * 60 * 60 * 1000
+  ).toLocaleString()}`;
   if (notifyInterval == 1) $.msg(jsname, "", tz);
   //显示所有通知
   else if (notifyInterval == 2 && box.data.amount >= 0) $.msg(jsname, "", tz);
@@ -666,10 +669,7 @@ function showmsg() {
     box.data.count == 54 ||
     box.data.count == 72
   )
-    tz += `\n\n脚本执行- 北京时间(UTC+8)：${new Date(
-      new Date().getTime() + 8 * 60 * 60 * 1000
-    ).toLocaleString()}`;
-  $.msg(jsname, "", tz); //宝箱每18次通知一次
+    $.msg(jsname, "", tz); //宝箱每18次通知一次
 }
 
 // prettier-ignore
