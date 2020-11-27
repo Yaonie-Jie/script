@@ -2,72 +2,6 @@
 
 本人github地址     https://github.com/ziye12/JavaScript 
 转载请备注个名字，谢谢
-
-11.25 增加 阅读时长上传，阅读金币，阅读随机金币
-11.25 修复翻倍宝箱不同时领取的问题.增加阅读金币判定
-11.25 修复阅读时长问题，阅读金币问题，请重新获取时长cookie
-11.26 随机金币只有一次，故去除，调整修复阅读金币问题，增加时长上传限制
-11.26 增加领取周时长奖励
-
-
-⚠️cookie获取方法：
-
-进 https://m.q.qq.com/a/s/d3eacc70120b9a37e46bad408c0c4c2a  点我的   获取cookie
-
-进一本书 看 10秒以下 然后退出，获取阅读时长cookie，看书一定不能超过10秒
-
-可能某些页面会卡住，但是能获取到cookie，再注释cookie重写就行了！
-
-
-
-⚠️宝箱奖励为20分钟一次，自己根据情况设置定时，建议设置11分钟一次
-
-hostname=mqqapi.reader.qq.com
-
-############## 圈x
-
-#企鹅读书获取cookie
-https:\/\/mqqapi\.reader\.qq\.com\/mqq\/user\/init url script-request-header https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js
-
-
-#企鹅读书获取时长cookie
-https:\/\/mqqapi\.reader\.qq\.com\/mqq\/addReadTimeWithBid? url script-request-header https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js
-
-
-
-
-
-
-############## loon
-
-
-//企鹅读书获取cookie
-http-request https:\/\/mqqapi\.reader\.qq\.com\/mqq\/user\/init script-path=https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js, requires-header=true
-
-//企鹅读书获取时长cookie
-http-request https:\/\/mqqapi\.reader\.qq\.com\/mqq\/addReadTimeWithBid? script-path=https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js, requires-header=true
-
-
-
-
-
-
-############## surge
-
-//企鹅读书获取cookie
-企鹅读书 = type=http-request,pattern=https:\/\/mqqapi\.reader\.qq\.com\/mqq\/user\/init,script-path=https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js, requires-header=true
-
-
-
-//企鹅读书获取时长cookie
-企鹅读书 = type=http-request,pattern=https:\/\/mqqapi\.reader\.qq\.com\/mqq\/addReadTimeWithBid? script-path=https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js, requires-header=true
-
-
-
-
-
-
-
 */
 
 const jsname = "企鹅读书";
@@ -77,8 +11,6 @@ const logs = 0; //0为关闭日志，1为开启
 const notifyInterval = 1;
 //0为关闭通知，1为所有通知，2为宝箱领取成功通知，3为宝箱每18次通知一次
 
-const jbid = 1; //换号则修改这个值,默认账号1
-
 const dd = 1; //单次任务延迟,默认1秒
 
 const TIME = 30; //单次时长上传限制，默认5分钟
@@ -87,90 +19,83 @@ const maxtime = 20; //每日上传时长限制，默认20小时
 
 const wktimess = 1200; //周奖励领取标准，默认1200分钟
 
-const qqreadurlKey = "qqreadurl" + jbid;
 const qqreadurlVal = "https://mqqapi.reader.qq.com/mqq/user/init";
-
-const qqreadheaderKey = "qqreadhd" + jbid;
-const qqreadheaderVal = JSON.stringify({
-  ywsession: "231ajtrxkxiqa4hxlf9tq6f0x51yq5le",
-  Cookie:
-    "ywguid=993406467;ywkey=ywRdaJX3UDkK;platform=ios;channel=mqqmina;mpVersion=0.28.0",
-  Connection: "keep-alive",
-  "Content-Type": "application/json",
-  Accept: "*/*",
-  Host: "mqqapi.reader.qq.com",
-  "User-Agent": "QQ/8.4.5.626 CFNetwork/1120 Darwin/19.0.0",
-  Referer: "https://appservice.qq.com/1110657249/0.28.0/page-frame.html",
-  "Accept-Language": "zh-cn",
-  "Accept-Encoding": "gzip, deflate, br",
-  mpversion: "0.28.0",
-});
-const qqreadbodyKey = "qqreadbody" + jbid;
-const qqreadbodyVal = $.getdata(qqreadbodyKey);
-
-const qqreadtimeurlKey = "qqreadtimeurl" + jbid;
-const qqreadtimeurlVal =
-  "https://mqqapi.reader.qq.com/mqq/addReadTimeWithBid?scene=3001&refer=pages%2Fbook-shelf%2Findex&bid=33543229&readTime=5197&read_type=0&conttype=1&read_status=0&chapter_info=%5B%7B%221%22%3A%7B%22readTime%22%3A5197%2C%22pay_status%22%3A0%7D%7D%5D&sp=%7B%22alg%22%3A%2290.2.1%22%2C%22expid%22%3A32%2C%22exposetime%22%3A%221606331345%22%2C%22logid%22%3A%22605412437109303030%22%2C%22origin%22%3A%220%22%2C%22preitemid%22%3A%22b_33543229%22%2C%22scene%22%3A%22tencent_selected_female%22%2C%22tabtype%22%3A%222%22%2C%22type%22%3A%220%22%2C%22userdegree%22%3A%222%22%7D";
-
-const qqreadtimeheaderKey = "qqreadtimehd" + jbid;
-const qqreadtimeheaderVal = JSON.stringify({
-  ywsession: "zzjvjyinsn2cp9l6s6vyor8yfba270qc",
-  Cookie:
-    "ywguid=993406467;ywkey=ywRdaJX3UDkK;platform=ios;channel=mqqmina;mpVersion=0.28.0;qq_ver=8.4.5;os_ver=iOS 13.2.3;mpos_ver=1.18.0;platform=ios;openid=9B30CCBDB51661025A626639108C1AA0",
-  Connection: "keep-alive",
-  "Content-Type": "application/json",
-  Accept: "*/*",
-  Host: "mqqapi.reader.qq.com",
-  "User-Agent": "QQ/8.4.5.626 CFNetwork/1120 Darwin/19.0.0",
-  Referer: "https://appservice.qq.com/1110657249/0.28.0/page-frame.html",
-  "Accept-Language": "zh-cn",
-  "Accept-Encoding": "gzip, deflate, br",
-  mpversion: "0.28.0",
-});
+let qqreadheaderVal, qqreadtimeurlVal, qqreadtimeheaderVal;
+const cookiesArr = [
+  {
+    qqreadheaderVal: JSON.stringify({
+      ywsession: "231ajtrxkxiqa4hxlf9tq6f0x51yq5le",
+      Cookie:
+        "ywguid=993406467;ywkey=ywRdaJX3UDkK;platform=ios;channel=mqqmina;mpVersion=0.28.0",
+      Connection: "keep-alive",
+      "Content-Type": "application/json",
+      Accept: "*/*",
+      Host: "mqqapi.reader.qq.com",
+      "User-Agent": "QQ/8.4.5.626 CFNetwork/1120 Darwin/19.0.0",
+      Referer: "https://appservice.qq.com/1110657249/0.28.0/page-frame.html",
+      "Accept-Language": "zh-cn",
+      "Accept-Encoding": "gzip, deflate, br",
+      mpversion: "0.28.0",
+    }),
+    qqreadtimeurlVal:
+      "https://mqqapi.reader.qq.com/mqq/addReadTimeWithBid?scene=3001&refer=pages%2Fbook-shelf%2Findex&bid=33543229&readTime=5197&read_type=0&conttype=1&read_status=0&chapter_info=%5B%7B%221%22%3A%7B%22readTime%22%3A5197%2C%22pay_status%22%3A0%7D%7D%5D&sp=%7B%22alg%22%3A%2290.2.1%22%2C%22expid%22%3A32%2C%22exposetime%22%3A%221606331345%22%2C%22logid%22%3A%22605412437109303030%22%2C%22origin%22%3A%220%22%2C%22preitemid%22%3A%22b_33543229%22%2C%22scene%22%3A%22tencent_selected_female%22%2C%22tabtype%22%3A%222%22%2C%22type%22%3A%220%22%2C%22userdegree%22%3A%222%22%7D",
+    qqreadtimeheaderVal: JSON.stringify({
+      ywsession: "zzjvjyinsn2cp9l6s6vyor8yfba270qc",
+      Cookie:
+        "ywguid=993406467;ywkey=ywRdaJX3UDkK;platform=ios;channel=mqqmina;mpVersion=0.28.0;qq_ver=8.4.5;os_ver=iOS 13.2.3;mpos_ver=1.18.0;platform=ios;openid=9B30CCBDB51661025A626639108C1AA0",
+      Connection: "keep-alive",
+      "Content-Type": "application/json",
+      Accept: "*/*",
+      Host: "mqqapi.reader.qq.com",
+      "User-Agent": "QQ/8.4.5.626 CFNetwork/1120 Darwin/19.0.0",
+      Referer: "https://appservice.qq.com/1110657249/0.28.0/page-frame.html",
+      "Accept-Language": "zh-cn",
+      "Accept-Encoding": "gzip, deflate, br",
+      mpversion: "0.28.0",
+    }),
+  },
+  {
+    qqreadheaderVal: JSON.stringify({
+      ywsession: "wk22o2fmjrg48snrtou2as19gurpvb5c",
+      Cookie:
+        "ywguid=1792750529;ywkey=ywemcbEW649f;platform=ios;channel=mqqmina;mpVersion=0.29.4",
+      Connection: "keep-alive",
+      "Content-Type": "application/json",
+      Accept: "*/*",
+      Host: "mqqapi.reader.qq.com",
+      "User-Agent": "QQ/8.4.5.626 CFNetwork/1120 Darwin/19.0.0",
+      Referer: "https://appservice.qq.com/1110657249/0.29.4/page-frame.html",
+      "Accept-Language": "zh-cn",
+      "Accept-Encoding": "gzip, deflate, br",
+      mpversion: "0.29.4",
+    }),
+    qqreadtimeurlVal:
+      "https://mqqapi.reader.qq.com/mqq/addReadTimeWithBid?scene=1007&refer=-1&bid=26878703&readTime=5083&read_type=0&conttype=1&read_status=0&chapter_info=%5B%7B%221%22%3A%7B%22readTime%22%3A5083%2C%22pay_status%22%3A0%7D%7D%5D&sp=-1",
+    qqreadtimeheaderVal: JSON.stringify({
+      ywsession: "wk22o2fmjrg48snrtou2as19gurpvb5c",
+      Cookie:
+        "ywguid=1792750529;ywkey=ywemcbEW649f;platform=ios;channel=mqqmina;mpVersion=0.29.4;qq_ver=8.4.5;os_ver=iOS 13.2.3;mpos_ver=1.18.0;platform=ios;openid=DD52CCE8A2AD4B50CFA38C1106F33208",
+      Connection: "keep-alive",
+      "Content-Type": "application/json",
+      Accept: "*/*",
+      Host: "mqqapi.reader.qq.com",
+      "User-Agent": "QQ/8.4.5.626 CFNetwork/1120 Darwin/19.0.0",
+      Referer: "https://appservice.qq.com/1110657249/0.29.4/page-frame.html",
+      "Accept-Language": "zh-cn",
+      "Accept-Encoding": "gzip, deflate, br",
+      mpversion: "0.29.4",
+    }),
+  },
+];
 
 var tz = "";
-
-//CK运行
-
-let isGetCookie = typeof $request !== "undefined";
-if (isGetCookie) {
-  GetCookie();
-} else {
-  all();
-}
-
-function GetCookie() {
-  if ($request && $request.url.indexOf("init") >= 0) {
-    const qqreadurlVal = $request.url;
-    if (qqreadurlVal) $.setdata(qqreadurlVal, qqreadurlKey);
-    $.log(`[${jsname}] 获取url请求: 成功,qqreadurlVal: ${qqreadurlVal}`);
-
-    const qqreadbodyVal = $request.body;
-    if (qqreadbodyVal) $.setdata(qqreadbodyVal, qqreadbodyKey);
-    $.log(`[${jsname}] 获取阅读: 成功,qqreadbodyVal: ${qqreadbodyVal}`);
-
-    const qqreadheaderVal = JSON.stringify($request.headers);
-    if (qqreadheaderVal) $.setdata(qqreadheaderVal, qqreadheaderKey);
-    $.log(`[${jsname}] 获取Cookie: 成功,qqreadheaderVal: ${qqreadheaderVal}`);
-    $.msg(qqreadheaderKey, `获取cookie: 成功🎉`, ``);
-  } else if ($request && $request.url.indexOf("addReadTimeWithBid?") >= 0) {
-    const qqreadtimeurlVal = $request.url;
-    if (qqreadtimeurlVal) $.setdata(qqreadtimeurlVal, qqreadtimeurlKey);
-    $.log(
-      `[${jsname}] 获取阅读时长url: 成功,qqreadtimeurlVal: ${qqreadtimeurlVal}`
-    );
-
-    const qqreadtimeheaderVal = JSON.stringify($request.headers);
-    if (qqreadtimeheaderVal)
-      $.setdata(qqreadtimeheaderVal, qqreadtimeheaderKey);
-    $.log(
-      `[${jsname}] 获取时长header: 成功,qqreadtimeheaderVal: ${qqreadtimeheaderVal}`
-    );
-    $.msg(qqreadtimeheaderKey, `获取阅读时长cookie: 成功🎉`, ``);
-  }
-}
+let num = 0;
+all();
 
 function all() {
+  qqreadheaderVal = cookiesArr[num].qqreadheaderVal;
+  qqreadtimeurlVal = cookiesArr[num].qqreadtimeurlVal;
+  qqreadtimeheaderVal = cookiesArr[num].qqreadtimeheaderVal;
   for (var i = 0; i < 18; i++) {
     (function (i) {
       setTimeout(
@@ -211,8 +136,12 @@ function all() {
           else if (i == 15) qqreadpick();
           //领周时长奖励
           else if (i == 16) showmsg();
-          //通知
-          else if (i == 17) $.done(); //结束
+          else if (i == 17 && num < cookiesArr.length - 1) {
+            num += 1;
+            all();
+          } else if (i == 17 && num == cookiesArr.length - 1) {
+            $.done();
+          }
         },
 
         (i + 1) * dd * 1000
@@ -300,12 +229,11 @@ function qqreadinfo() {
   return new Promise((resolve, reject) => {
     const toqqreadinfourl = {
       url: qqreadurlVal,
-
       headers: JSON.parse(qqreadheaderVal),
-
       timeout: 60000,
     };
     $.get(toqqreadinfourl, (error, response, data) => {
+      console.log(data);
       if (logs) $.log(`${jsname}, 用户名: ${data}`);
       info = JSON.parse(data);
       tz += "【用户信息】:" + info.data.user.nickName + "\n";
@@ -657,9 +585,7 @@ function qqreadpick() {
 }
 
 function showmsg() {
-  tz += `\n\n脚本执行- 北京时间(UTC+8)：${new Date(
-    new Date().getTime() + 8 * 60 * 60 * 1000
-  ).toLocaleString()}`;
+  tz += `\n脚本执行：${new Date().toLocaleString()}\n\n`;
   if (notifyInterval == 1) $.msg(jsname, "", tz);
   //显示所有通知
   else if (notifyInterval == 2 && box.data.amount >= 0) $.msg(jsname, "", tz);
