@@ -1,3 +1,2 @@
-console.log(
-  new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()
-);
+const notify = require("./sendNotify");
+notify.sendNotify("1dasndhasbdy",'1111');

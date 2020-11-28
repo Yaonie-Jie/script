@@ -6,6 +6,7 @@
 
 const jsname = "企鹅读书";
 const $ = Env(jsname);
+const notify = require("./sendNotify");
 
 const logs = 0; //0为关闭日志，1为开启
 const notifyInterval = 1;
@@ -116,6 +117,38 @@ const cookiesArr = [
       "Accept-Language": "zh-cn",
       "Accept-Encoding": "gzip, deflate, br",
       mpversion: "0.29.4",
+    }),
+  },
+  {
+    qqreadheaderVal: JSON.stringify({
+      ywsession: "p5fp7tqhb51ueujoyvpfkysy5nn0hf8x",
+      Cookie:
+        "ywguid=248478135;ywkey=ywQykKGEwjDF;platform=ios;channel=mqqmina;mpVersion=0.30.0;qq_ver=8.4.5;os_ver=iOS 13.2.3;mpos_ver=1.18.0;platform=ios;openid=0C2B3177430FEBC2BD6899A8EEE55A56",
+      Connection: "keep-alive",
+      "Content-Type": "application/json",
+      Accept: "*/*",
+      Host: "mqqapi.reader.qq.com",
+      "User-Agent": "QQ/8.4.5.626 CFNetwork/1120 Darwin/19.0.0",
+      Referer: "https://appservice.qq.com/1110657249/0.30.0/page-frame.html",
+      "Accept-Language": "zh-cn",
+      "Accept-Encoding": "gzip, deflate, br",
+      mpversion: "0.30.0",
+    }),
+    qqreadtimeurlVal:
+      "https://mqqapi.reader.qq.com/mqq/addReadTimeWithBid?scene=1007&refer=-1&bid=26309789&readTime=7297&read_type=0&conttype=1&read_status=0&chapter_info=%5B%7B%221%22%3A%7B%22readTime%22%3A7297%2C%22pay_status%22%3A0%7D%7D%5D&sp=-1",
+    qqreadtimeheaderVal: JSON.stringify({
+      ywsession: "p5fp7tqhb51ueujoyvpfkysy5nn0hf8x",
+      Cookie:
+        "ywguid=248478135;ywkey=ywQykKGEwjDF;platform=ios;channel=mqqmina;mpVersion=0.30.0;qq_ver=8.4.5;os_ver=iOS 13.2.3;mpos_ver=1.18.0;platform=ios;openid=0C2B3177430FEBC2BD6899A8EEE55A56",
+      Connection: "keep-alive",
+      "Content-Type": "application/json",
+      Accept: "*/*",
+      Host: "mqqapi.reader.qq.com",
+      "User-Agent": "QQ/8.4.5.626 CFNetwork/1120 Darwin/19.0.0",
+      Referer: "https://appservice.qq.com/1110657249/0.30.0/page-frame.html",
+      "Accept-Language": "zh-cn",
+      "Accept-Encoding": "gzip, deflate, br",
+      mpversion: "0.30.0",
     }),
   },
 ];
@@ -265,7 +298,6 @@ function qqreadinfo() {
       timeout: 60000,
     };
     $.get(toqqreadinfourl, (error, response, data) => {
-      console.log(data);
       if (logs) $.log(`${jsname}, 用户名: ${data}`);
       info = JSON.parse(data);
       tz += "【用户信息】:" + info.data.user.nickName + "\n";
@@ -630,7 +662,8 @@ function showmsg() {
     box.data.count == 72
   )
     $.msg(jsname, "", tz); //宝箱每18次通知一次
-    tz="";
+  // notify.sendNotify(jsname, tz);
+  tz = "";
 }
 
 // prettier-ignore
