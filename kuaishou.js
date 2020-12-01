@@ -1,150 +1,74 @@
-const $ = new Env("新浪微博");
-const notify = $.isNode() ? require("./sendNotify") : "";
-let tokenArr = [
-    "gsid=_2A25yes6ZDeRxGeNJ4lsX8inJyTmIHXVvLkVRrDV6PUJbkdAKLVbjkWpNS531vDM5Hv4gFABEzM4QGSY42x5I95Wv&wm=3333_2001&launchid=default&b=0&from=10AB093010&c=iphone&networktype=wifi&v_p=86&skin=default&v_f=1&s=4eed18b0&lang=zh_CN&sflag=1&ua=iPhone12,1__weibo__10.11.0__iphone__os13.2.3&ft=0&aid=01A-7Ja3180zF9jnFQiqsy7xACACYPDwJixvJw2UhKrFodye4.",
-  ],
-  payArr = ['{"Accept":"application/json","Accept-Encoding":"gzip, deflate, br","Origin":"https://pay.sc.weibo.com","Cookie":"Apache=1594258846320.7197.1605150006347; SINAGLOBAL=1594258846320.7197.1605150006347; ULV=1605150006356:1:1:1:1594258846320.7197.1605150006347:; _s_tentry=-; SCF=AsbCB_NxNvVyRO3h7Dvi80FR3Js9WwPCbB1CTN2WkWtU237mUvZQggkVksLYZlSHfw..; SUB=_2A25yqNV8DeRhGeNJ4lsX8inJyTmIHXVRpYU0rDV8PUJbitANLXHAkWtNS531vAxUCbjnnEDeaRroT9yJCbsDeQyR; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WhOkLkcFzf86myiDcEZP7pK5NHD95QfS0.4SozNSKzfWs4Dqcj-i--fi-2ciK.ci--fi-82i-i2CJ-t; SC-G0=ad42b459d3177a5a9dc96806a22cc29e","Connection":"keep-alive","Host":"pay.sc.weibo.com","Content-Length":"0","User-Agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Weibo (iPhone12,1__weibo__10.11.0__iphone__os13.2.3)","Referer":"https://pay.sc.weibo.com/center/mobile/task/index?ua=iPhone12%2C1__weibo__10.11.0__iphone__os13.2.3&from=10AB093010&source=qianbao&portrait_only=1","Accept-Language":"zh-cn","X-Requested-With":"XMLHttpRequest"}'],
-  paybag;
-if ((isGetCookie = typeof $request !== `undefined`)) {
-  GetCookie();
-  $.done();
-}
+const logs = 0; //日志开关
+const notify = require("./sendNotify");
+const $ = new Env("快手极速版");
+const cookieVal =
+  "appver=3.2.10.264; c=a; client_key=63b2bdd7; countryCode=cn; did=DE7351E7-0C03-43DD-965A-83ECEE1256F4; egid=DFP3E162EC9476EC9D6002F0BF0B6C326CAD045A24B89D38DC12C6D1EA7A135D; gid=; kpf=IPHONE; kpn=NEBULA; kuaishou.api_st=Cg9rdWFpc2hvdS5hcGkuc3QSsAEwGS5_pOQ2Th9aarDe8BuQKcrg-piRyNXMi-7Fq7abPTB4zgdcLH3wuRWIq-yFfM_pVltPsE5_Kvk64piTIuB2vz3H7jwKRZz13qymkliDbygdTqUm7qy8jaujjwlHppuz7VlFYZXE_Hyp8yYY8s2xNaYQlvpfo9zoxmfOi6FD6sYD5oI278hbeMlmSoefhc57W9Q_WWRk-TkXiQClmxvyHbVdrPKbOdd408_-KRrV2xoS2XvDR99SRDOqaScwEugPIgVVIiBoor-Tx5QeFo9g4xIErKZo5GjThcDlP29Vm_-xbxGjsigFMAE; kuaishou.h5_st=Cg5rdWFpc2hvdS5oNS5zdBKgATPLFdGu_ZP0I8uyBN4lyp-BE1fK74IB1ZqBSSUWZ-MX6ecK7TDGPgbrxtzZz-W0CfcKG8L3kxF7TuOXzstxYUYreT1QJMlCfZkdq3eGdMNkApeGRdMZc2ZDeFG_KZ85v2OWfmqhrpMTWDNHnLWVbAuBxplKyjnZKbGj_IET9wVSHhcElGtgTQnC4rDkBV87Xk8yFrLw8k9ENnzDLwSFZ0AaEp0eftNRumGRlTzDnTam4VQFlCIgOBByon8p4-8Un5ozCTdLM4IqB0SJGXUzRDHLdwh0ZkwoBTAB; kuaishou.sixin.login_st=ChdrdWFpc2hvdS5zaXhpbi5sb2dpbi5zdBKgAe4CwAVWfX0WFH7OrJ0NQrqtTQyIfpeU3AlzCLDdwjzNVIPIzu6z5_I2utN4lhREpAo8sxJbH3ylNHIoTmOEmZWWC6mQ8Q8vQTNxeKAe-rUwgJD0bm5hvcIQ7ic0eYEBpnxSZ6MMlnkrlWMia7093b2v9dE560q6-NlMM-AMRpoxglG8auz-ecXqB7eDPl6tXX52sjaLrE8JzEr4-BcKHssaEr2d9ngH7k9Yrg0zT5lDm0LdWyIgYnVd2v1iVyv2uMIvLRfTXYm4Aq4yp-FQ8BPCXDJJ5u4oBTAB; language=zh-Hans-CN%3Bq%3D1%2C%2520en-CN%3Bq%3D0.9; lat=0.000000; lon=0.000000; mod=iPhone12%2C1; net=MOBILE_3G; sys=iOS_13.2.3; token=Cg9rdWFpc2hvdS5hcGkuc3QSsAEwGS5_pOQ2Th9aarDe8BuQKcrg-piRyNXMi-7Fq7abPTB4zgdcLH3wuRWIq-yFfM_pVltPsE5_Kvk64piTIuB2vz3H7jwKRZz13qymkliDbygdTqUm7qy8jaujjwlHppuz7VlFYZXE_Hyp8yYY8s2xNaYQlvpfo9zoxmfOi6FD6sYD5oI278hbeMlmSoefhc57W9Q_WWRk-TkXiQClmxvyHbVdrPKbOdd408_-KRrV2xoS2XvDR99SRDOqaScwEugPIgVVIiBoor-Tx5QeFo9g4xIErKZo5GjThcDlP29Vm_-xbxGjsigFMAE; userId=177918692; ver=3.2; apptype=2; browseType=3; country_code=cn; cs=false; darkMode=false; foreign=0; global_id=DFP3E162EC9476EC9D6002F0BF0B6C326CAD045A24B89D38DC12C6D1EA7A135D; isp=CTCC; os=13.2.3; sh=1792; sid=AE6A3CFE-99B0-4E1B-A104-A6F9DAAE5474; sw=828; ud=177918692";
 
 !(async () => {
-  if (!tokenArr[0]) {
-    $.msg($.name, "【提示】请先获取新浪微博一cookie");
-    return;
-  }
-  console.log(`------------- 共${tokenArr.length}个账号\n`);
-  for (let i = 0; i < tokenArr.length; i++) {
-    if (tokenArr[i]) {
-      token = tokenArr[i];
-      payheaderVal = payArr[i];
-      $.index = i + 1;
-      console.log(`\n开始【微博签到${$.index}】`);
-      await getsign();
-      await doCard();
-      if (payheaderVal !== undefined) {
-        await paysign();
-      } else {
-        paybag = `【钱包签到】❌ 未获取Cooiekie`;
-      }
-      await showmsg();
-    }
-  }
+  await sign();
+  await signifo();
+  await info();
 })()
   .catch((e) => $.logErr(e))
   .finally(() => $.done());
+console.log(
+  `============ 脚本执行：${new Date().toLocaleString()}  =============\n`
+);
 
-function GetCookie() {
-  if (
-    $request &&
-    $request.method != "OPTIONS" &&
-    $request.url.match(/\/\d\/[a-z]+\/\w+\?gsid/)
-  ) {
-    const signurlVal = $request.url;
-    const token = signurlVal.split(`?`)[1];
-    //const signheaderVal = JSON.stringify($request.headers)
-    $.log(`token:${token}`);
-    if (token) $.setdata(token, "sy_token_wb");
-    $.msg($.name, `获取微博签到Cookie: 成功`, ``);
-  } else if (
-    $request &&
-    $request.method != "OPTIONS" &&
-    $request.url.match(/\/home\/welfare\/signin\/do\?_=[1-9]+/)
-  ) {
-    const payheaderVal = JSON.stringify($request.headers);
-    if (payheaderVal) $.setdata(payheaderVal, "sy_payheader_wb");
-    $.msg($.name, `获取微博钱包Cookie: 成功`, ``);
-  }
-}
-
-//微博签到
-function getsign() {
+function sign() {
   return new Promise((resolve, reject) => {
     let signurl = {
-      url: `https://api.weibo.cn/2/checkin/add?${token}`,
-      headers: { "User-Agent": `Weibo/46902 (iPhone; iOS 14; Scale/3.00)` },
+      url: "https://nebula.kuaishou.com/rest/n/nebula/sign/sign",
+      headers: { Cookie: cookieVal },
     };
-    $.post(signurl, async (error, response, data) => {
+    $.get(signurl, (error, response, data) => {
+      if (logs) $.log(`${$.name}, data: ${data}`);
       let result = JSON.parse(data);
-      if (result.status == 10000) {
-        wbsign = `【微博签到】✅ 连续签到${result.data.continuous}天，收益: ${result.data.desc}💰\n`;
-      } else if (result.errno == 30000) {
-        wbsign = `【每日签到】 🔁  `;
-      } else if (result.status == 90005) {
-        wbsign = `【每日签到】‼️` + result.msg + "\n";
-      } else {
-        wbsign = `【每日签到】 ❌ 签到失败` + result.errmsg;
-        $.msg($.name, wbsign, ``);
-        if ($.isNode()) {
-          await notify.sendNotify($.name, wbsign);
-        }
-        return;
+      if (result.result == 10007) {
+        subTitle = `签到结果: ${result.error_msg}`;
+        $.msg($.name, subTitle, "");
+      }
+      if (logs)
+        $.log(`错误代码: ${result.result}, 返回信息: ${result.error_msg}`);
+    });
+    resolve();
+  });
+}
+function signifo() {
+  return new Promise((resolve, reject) => {
+    earnurl = {
+      url: "https://nebula.kuaishou.com/rest/n/nebula/sign/query",
+      headers: { Cookie: cookieVal },
+    };
+    $.get(earnurl, (error, response, data) => {
+      if (logs) $.log(`${$.name}, data: ${data}`);
+      let result = JSON.parse(data);
+      if (result.data.nebulaSignInPopup.button == "立即签到") {
+        detail = `签到成功: ${result.data.nebulaSignInPopup.subTitle}, ${result.data.nebulaSignInPopup.title}`;
+      } else if (result.data.nebulaSignInPopup.button == "好的") {
+        detail = `重复签到: ${result.data.nebulaSignInPopup.subTitle}, ${result.data.nebulaSignInPopup.title}`;
       }
       resolve();
     });
   });
 }
-
-function doCard() {
+function info() {
   return new Promise((resolve, reject) => {
-    let doCardurl = {
-      url: `https://api.weibo.cn/2/!/ug/king_act_home?${token}`,
-      headers: { "User-Agent": `Weibo/46902 (iPhone; iOS 14; Scale/3.00)` },
+    let reurl = {
+      url: "https://nebula.kuaishou.com/rest/n/nebula/activity/earn/overview",
+      headers: { Cookie: cookieVal },
     };
-    $.get(doCardurl, (error, response, data) => {
+    $.get(reurl, (error, response, data) => {
+      if (logs) $.log(`${$.name}, data: ${data}`);
       let result = JSON.parse(data);
-      if (result.status == 10000) {
-        nickname = "昵称: " + result.data.user.nickname;
-        signday = result.data.signin.title.split("<")[0];
-        docard =
-          `【每日打卡】 ✅ ` +
-          signday +
-          "天 积分总计: " +
-          result.data.user.energy;
-      } else {
-        docard = `【每日打卡】 ❌ 活动过期或失效`;
+      if (result.result == 1) {
+        subTitle = `现金收益: 💵${result.data.allCash}元    金币收益: 💰${result.data.totalCoin}`;
       }
+      $.msg($.name, subTitle, detail);
+      notify.sendNotify($.name, subTitle);
       resolve();
     });
   });
-}
-
-// 钱包签到
-function paysign() {
-  return new Promise((resolve, reject) => {
-    $.post(
-      {
-        url: `https://pay.sc.weibo.com/aj/mobile/home/welfare/signin/do?_=${
-          $.startTime + 10
-        }`,
-        headers: JSON.parse(payheaderVal),
-      },
-      (error, response, data) => {
-        let result = JSON.parse(data);
-        if (result.status == 1) {
-          paybag = `【微博钱包】 ✅ +` + result.score + " 分\n";
-        } else if (result.status == "2") {
-          paybag = `【微博钱包】 🔁\n`;
-        } else {
-          paybag = `【钱包签到】❌ Cookie失效` + "\n";
-        }
-        resolve();
-      }
-    );
-  });
-}
-async function showmsg() {
-  if (paybag) {
-    $.msg($.name, nickname, wbsign + paybag + docard);
-    if ($.isNode()) {
-      await notify.sendNotify(
-        $.name,
-        nickname + "\n" + wbsign + paybag + docard
-      );
-    }
-  }
 }
 
 function Env(t, e) {

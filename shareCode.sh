@@ -32,7 +32,6 @@ mMgaT8eM2vngwPhSUPlm4w=="
 
 ## 如果你希望在向服务器提交互助码后反馈提交结果，请补充ServerChan的SCKEY
 ## 教程：http://sc.ftqq.com/3.version
-## 我懒，只做了ServerChan的通知渠道，其他不想做
 SCKEY="SCU69645T751603996ddcb96a66fe98a2087d89fb5dfaf35ad83fc"
 
 
