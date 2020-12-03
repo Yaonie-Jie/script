@@ -203,30 +203,35 @@ function all() {
           //时长查询
           else if (i == 2) qqreadtask();
           //任务列表
-          else if (i == 3) qqreadsign();
+          else if (i == 3 && task.data.taskList[2].doneFlag == 0) qqreadsign();
           //金币签到
           else if (i == 4 && task.data.treasureBox.doneFlag == 0) qqreadbox();
           //宝箱
-          else if (i == 5 && task.data.taskList[2].doneFlag == 0) qqreadssr1();
+          else if (i == 5 && task.data.taskList[1].doneFlag == 0) qqreadssr1();
           //阅读金币1
-          else if (i == 6) qqreadtime();
+          else if (
+            i == 6 &&
+            config.data.pageParams.todayReadSeconds / 3600 <= maxtime
+          )
+            qqreadtime();
           //上传时长
-          else if (i == 7 && task.data.taskList[0].doneFlag == 0) qqreadtake();
+          else if (i == 7 && task.data.taskList[2].doneFlag == 0) qqreadtake();
           //阅豆签到
-          else if (i == 8 && task.data.taskList[1].doneFlag == 0)
+          else if (i == 8 && task.data.taskList[0].doneFlag == 0)
             qqreaddayread();
           //阅读任务
-          else if (i == 9 && task.data.taskList[2].doneFlag == 0) qqreadssr2();
+          else if (i == 9 && task.data.taskList[1].doneFlag == 0) qqreadssr2();
           //阅读金币2
           else if (i == 10 && task.data.taskList[3].doneFlag == 0)
             qqreadvideo();
           //视频任务
-          else if (i == 11 && sign.data.videoDoneFlag == 0) qqreadsign2();
+          else if (i == 11 && task.data.taskList[2].doneFlag == 0)
+            qqreadsign2();
           //签到翻倍
           else if (i == 12 && task.data.treasureBox.videoDoneFlag == 0)
             qqreadbox2();
           //宝箱翻倍
-          else if (i == 13 && task.data.taskList[2].doneFlag == 0) qqreadssr3();
+          else if (i == 13 && task.data.taskList[1].doneFlag == 0) qqreadssr3();
           //阅读金币3
           else if (i == 14) qqreadwktime();
           //周时长查询
