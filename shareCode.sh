@@ -4,13 +4,15 @@
 ShareCodesBean="b6xxkujlkjykfriicy7emnyhbm
 4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy
 e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea
-e7lhibzb3zek2sukqc23c4te54w2z2ylg7p7loq"
+e7lhibzb3zek2sukqc23c4te54w2z2ylg7p7loq
+4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy"
 
 ## 东东农场，每个互助码间使用换行来分开，首尾一对引号
 ShareCodesFarm="13cd7d9990544ca29195aee9d2574395
 3c7658fedf724c929c9d924c433f70ae
 76d3727f1c154d1baff411fbdf43fc94
-78d81e320aad4add99ef2992b7c76bd8"
+78d81e320aad4add99ef2992b7c76bd8
+8bf03a4fe64f4a32823e473a06d06fb8"
 
 ## 东东萌宠，每个互助码间使用换行来分开，首尾一对引号
 ShareCodesPet="MTE1NDAxNzcwMDAwMDAwMzUyOTU3ODk=
@@ -22,13 +24,15 @@ MTEzMzI0OTE0NTAwMDAwMDA0MDk2NjkyNw=="
 ShareCodesGong="P04z54XCjVWnYaS5jwBC2T423hMkgs0
 P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg
 P04z54XCjVWnYaS5m9cZ2StjHUZkkmwtnsRdio
-P04z54XCjVWnYaS5m9cZ2T51XsblwYlhjsxmKc"
+P04z54XCjVWnYaS5m9cZ2T51XsblwYlhjsxmKc
+P04z54XCjVWnYaS5m9cZyeGoxwO9pQe7gHT5g"
 
 ## 京喜工厂，每个互助码间使用换行来分开，首尾一对引号
 ShareCodesJingxi="fhEyWnDSm2PmfOajBltZWg==
 vmlNjZVbTsZ2lzeFh3tHYA==
 VUFcFE8mE-y7N_33EOWn3Q==
-mMgaT8eM2vngwPhSUPlm4w=="
+mMgaT8eM2vngwPhSUPlm4w==
+C-1-4msNcWJ7Gq4GO4Xq2w=="
 
 ## 如果你希望在向服务器提交互助码后反馈提交结果，请补充ServerChan的SCKEY
 ## 教程：http://sc.ftqq.com/3.version
