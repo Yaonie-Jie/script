@@ -38,7 +38,7 @@ const shareCodes = [
     nc: "8bf03a4fe64f4a32823e473a06d06fb8",
     mc: "MTE1NDUwMTI0MDAwMDAwMDQxODY4NDc1",
     ddgc: "P04z54XCjVWnYaS5m9cZ2T51XsblwYlhjsxmKc",
-    jxgc: "P04z54XCjVWnYaS5m9cZyeGoxwO9pQe7gHT5g==",
+    jxgc: "C-1-4msNcWJ7Gq4GO4Xq2w==",
   },
   //姐姐
   {
@@ -52,9 +52,9 @@ const shareCodes = [
   {
     zd: "vufhlr35oqqmb7yenkor4dtyscjaidt5yjx4ota",
     nc: "34cad0b44ec74548afd61f75dde3fc79",
-    mc: "",
+    mc: "MTEzMzI0OTE0NTAwMDAwMDA0MjE5NjQ1NQ==",
     ddgc: "P04z54XCjVWnYaS5mhRVjf5331KlkgNJ2I",
-    jxgc: "",
+    jxgc: "jER5O2NJDZjht6QtbM1bGA==",
   },
 ];
 $.result = [];

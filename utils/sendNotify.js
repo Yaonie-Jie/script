@@ -1,14 +1,16 @@
 const querystring = require("querystring");
+require('../utils/env')
+
 const $ = new Env();
 // =======================================微信server酱通知设置区域===========================================
 //此处填你申请的SCKEY.
 //注：此处设置github action用户填写到Settings-Secrets里面(Name输入PUSH_KEY)
-let SCKEY = "SCU69645T751603996ddcb96a66fe98a2087d89fb5dfaf35ad83fc";
+let SCKEY = "";
 
 // =======================================Bark App通知设置区域===========================================
 //此处填你BarkAPP的信息(IP/设备码，例如：https://api.day.app/XXXXXXXX)
 //注：此处设置github action用户填写到Settings-Secrets里面（Name输入BARK_PUSH）
-let BARK_PUSH = "hTgGQuWEPWNKadaHsu4R6F";
+let BARK_PUSH = "";
 //BARK app推送铃声,铃声列表去APP查看复制填写
 //注：此处设置github action用户填写到Settings-Secrets里面（Name输入BARK_SOUND , Value输入app提供的铃声名称，例如:birdsong）
 let BARK_SOUND = "";
@@ -16,11 +18,10 @@ let BARK_SOUND = "";
 // =======================================telegram机器人通知设置区域===========================================
 //此处填你telegram bot 的Token，例如：1077xxx4424:AAFjv0FcqxxxxxxgEMGfi22B4yh15R5uw
 //注：此处设置github action用户填写到Settings-Secrets里面(Name输入TG_BOT_TOKEN)
-let TG_BOT_TOKEN = "1494827339:AAEEI6Nod-ezVV-ZlwG2Jv4kQWNnCeDJBWU";
+let TG_BOT_TOKEN = "";
 //此处填你接收通知消息的telegram用户的id，例如：129xxx206
 //注：此处设置github action用户填写到Settings-Secrets里面(Name输入TG_USER_ID)
-// let TG_USER_ID = "1033848496";
-let TG_USER_ID = '';
+let TG_USER_ID = "";
 // =======================================钉钉机器人通知设置区域===========================================
 //此处填你钉钉 bot 的webhook，例如：5a544165465465645d0f31dca676e7bd07415asdasd
 //注：此处设置github action用户填写到Settings-Secrets里面(Name输入DD_BOT_TOKEN)
@@ -230,6 +231,7 @@ function ddBotNotify(text, desp) {
         text: {
           content: ` ${text}\n\n${desp}`,
         },
+        at: { atMobiles: ["17681858411"], isAtAll: false },
       },
       headers: {
         "Content-Type": "application/json",

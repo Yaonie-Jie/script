@@ -1,2 +1,4 @@
-const notify = require("./sendNotify");
-notify.sendNotify("1dasndhasbdy",'1111');
+// const notify = require("../utils/sendNotify");
+// notify.sendNotify("测试",'1111');
+require('../utils/env')
+console.log(process.env)

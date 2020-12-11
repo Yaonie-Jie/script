@@ -128,7 +128,7 @@ const cookiesArr = [
 
 const jsname = "企鹅读书";
 const $ = Env(jsname);
-const notify = $.isNode() ? require("../sendNotify") : "";
+const notify = $.isNode() ? require("../utils/sendNotify") : "";
 
 let tz = "";
 let kz = "";
