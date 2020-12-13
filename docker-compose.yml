@@ -8,7 +8,7 @@ services:
     volumes:
       - ./logs1:/scripts/logs
     environment:
-      - JD_COOKIE=pt_key=AAJftxrjADD9zqIP0V7pjDEkNpnTMVX6ZxRopB2avrIA69n81R0w37574iIlLEIbHWBav-n3yG4;pt_pin=993406467_m&pt_key=AAJfxMgoADBC4UVuCR7AZg3OIyeikLEy_dBDRID-qMRZchkXqg8UcAabzCCIqKAe2eUtbbUVbRE;pt_pin=jd_74d1b00658634&pt_key=AAJf1I4FADCKdIMArHTYzPOZ1Fm-wl0s9nFvP5HUpW7eVpz_haTU5V-A7eQX1BizU65t-lO0970;pt_pin=jd_HJvpwrDqLEqJ;
+      - JD_COOKIE=pt_key=AAJftxrjADD9zqIP0V7pjDEkNpnTMVX6ZxRopB2avrIA69n81R0w37574iIlLEIbHWBav-n3yG4;pt_pin=993406467_m&pt_key=AAJfxMgoADBC4UVuCR7AZg3OIyeikLEy_dBDRID-qMRZchkXqg8UcAabzCCIqKAe2eUtbbUVbRE;pt_pin=jd_74d1b00658634;
       - PUSH_KEY=SCU69645T751603996ddcb96a66fe98a2087d89fb5dfaf35ad83fc
       - DD_BOT_TOKEN=3d604445f0bbbb129185d0d244a218407f23630905276cb06eb0774fe012c689
       - DD_BOT_SECRET=SEC93c1887a89a0af24e25e1a742fc108fceeacaa0254fc158c50c3c1cc7bdfb362

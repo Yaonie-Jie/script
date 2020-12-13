@@ -8,6 +8,14 @@ const shareCodes = [
     ddgc: "P04z54XCjVWnYaS5jwBC2T423hMkgs0",
     jxgc: "fhEyWnDSm2PmfOajBltZWg==",
   },
+  //我的小号
+  {
+    zd: "x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a",
+    nc: "e436bdfeaa454902ad20fddd1ce096b5",
+    mc: "MTE1NDUyMjEwMDAwMDAwNDI0MjEyMzc=",
+    ddgc: "P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA",
+    jxgc: "07HXmMgtDo7VQFSb8oxXxA==",
+  },
   //小费
   {
     zd: "4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy",
