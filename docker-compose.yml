@@ -9,7 +9,6 @@ services:
       - ./logs1:/scripts/logs
     environment:
       - JD_COOKIE=pt_key=AAJftxrjADD9zqIP0V7pjDEkNpnTMVX6ZxRopB2avrIA69n81R0w37574iIlLEIbHWBav-n3yG4;pt_pin=993406467_m&pt_key=AAJfxMgoADBC4UVuCR7AZg3OIyeikLEy_dBDRID-qMRZchkXqg8UcAabzCCIqKAe2eUtbbUVbRE;pt_pin=jd_74d1b00658634&pt_key=AAJf1ttIADAcviRt_K2S6QXO7a3E0ANgjfojAvY_sUJOMgebhxX1ZqVv5U_SWRIk7kJXrpiA628;pt_pin=jd_HJvpwrDqLEqJ;
-      - PUSH_KEY=SCU69645T751603996ddcb96a66fe98a2087d89fb5dfaf35ad83fc
       - DD_BOT_TOKEN=3d604445f0bbbb129185d0d244a218407f23630905276cb06eb0774fe012c689
       - DD_BOT_SECRET=SEC93c1887a89a0af24e25e1a742fc108fceeacaa0254fc158c50c3c1cc7bdfb362
       - UN_SUBSCRIBES=100&100&iPhone12&Apple京东自营旗舰店
@@ -36,6 +35,10 @@ services:
       - FRUIT_BEAN_CARD= true
       - JOY_FEED_COUNT=40
       - FACTORAY_WANTPRODUCT_NAME=投影仪
+      - PLANT_BEAN_SHARECODES=b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy
+      - DDFACTORY_SHARECODES=P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg&P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg
+      - DREAM_FACTORY_SHARE_CODES=fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==
+      - FRUITSHARECODES=13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae&13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae
   jd_scripts3: #胖墩&王硕&妈妈
     image: akyakya/jd_scripts
     restart: always
@@ -72,3 +75,7 @@ services:
       - PET_NOTIFY_CONTROL=true
       - FRUIT_BEAN_CARD= true
       - JOY_FEED_COUNT=40
+      - PLANT_BEAN_SHARECODES=b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy
+      - DDFACTORY_SHARECODES=P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg&P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg
+      - DREAM_FACTORY_SHARE_CODES=fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==
+      - FRUITSHARECODES=13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae&13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae
