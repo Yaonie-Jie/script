@@ -18,6 +18,8 @@ services:
       - FRUIT_BEAN_CARD= true
       - JOY_FEED_COUNT=40
       - JD_BEAN_SIGN_NOTIFY_SIMPLE=true
+      - PLANT_BEAN_SHARECODES=e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea@4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy&e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea@4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy&e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea@4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy
+      - DREAM_FACTORY_SHARE_CODES=VUFcFE8mE-y7N_33EOWn3Q==@C-1-4msNcWJ7Gq4GO4Xq2w==&VUFcFE8mE-y7N_33EOWn3Q==@C-1-4msNcWJ7Gq4GO4Xq2w==&VUFcFE8mE-y7N_33EOWn3Q==@C-1-4msNcWJ7Gq4GO4Xq2w==
   jd_scripts2: #姐姐
     image: akyakya/jd_scripts
     restart: always

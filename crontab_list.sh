@@ -5,7 +5,7 @@
 #快手极速版
 30 9 * * * /root/.nvm/versions/node/v14.15.1/bin/node /root/script/src/kuaishou.js >> /root/script/log/kuaishou.log 2>&1
 #提交互助
-30 4 * * * /root/.nvm/versions/node/v14.15.1/bin/node /root/script/utils/shareCode.js >> /root/script/log/shareCode.log 2>&1
+30 4 1,10,20 * * /root/.nvm/versions/node/v14.15.1/bin/node /root/script/utils/shareCode.js >> /root/script/log/shareCode.log 2>&1
 
 
 
