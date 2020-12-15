@@ -17,6 +17,7 @@ services:
       - PET_NOTIFY_CONTROL=true
       - FRUIT_BEAN_CARD= true
       - JOY_FEED_COUNT=40
+      - JD_BEAN_SIGN_NOTIFY_SIMPLE=true
   jd_scripts2: #姐姐
     image: akyakya/jd_scripts
     restart: always
@@ -35,6 +36,7 @@ services:
       - FRUIT_BEAN_CARD= true
       - JOY_FEED_COUNT=40
       - FACTORAY_WANTPRODUCT_NAME=投影仪
+      - JD_BEAN_SIGN_NOTIFY_SIMPLE=true
       - PLANT_BEAN_SHARECODES=b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy
       - DDFACTORY_SHARECODES=P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg&P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg
       - DREAM_FACTORY_SHARE_CODES=fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==
@@ -57,6 +59,11 @@ services:
       - FRUIT_BEAN_CARD= true
       - JOY_FEED_COUNT=40
       - FACTORAY_WANTPRODUCT_NAME=投影仪
+      - JD_BEAN_SIGN_NOTIFY_SIMPLE=true
+      - PLANT_BEAN_SHARECODES=b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy
+      - DDFACTORY_SHARECODES=P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg&P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg&P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg
+      - DREAM_FACTORY_SHARE_CODES=fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==
+      - FRUITSHARECODES=13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae&13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae&13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae
   jd_scripts4: #小崔
     image: akyakya/jd_scripts
     restart: always
@@ -75,6 +82,7 @@ services:
       - PET_NOTIFY_CONTROL=true
       - FRUIT_BEAN_CARD= true
       - JOY_FEED_COUNT=40
+      - JD_BEAN_SIGN_NOTIFY_SIMPLE=true
       - PLANT_BEAN_SHARECODES=b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy
       - DDFACTORY_SHARECODES=P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg&P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg
       - DREAM_FACTORY_SHARE_CODES=fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==
