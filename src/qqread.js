@@ -199,7 +199,7 @@ function all() {
             if (task.data && task.data.taskList[1].doneFlag == 0) qqreadssr2(); // 阅读金币2
             if (task.data && task.data.taskList[2].doneFlag == 0) qqreadsign2(); // 签到翻倍
           } else if (i == 8 && task.data && task.data.user.amount >= 100000) {
-            if ($.isNode() && d.getHours() == 23) qqreadwithdraw();
+            if ($.isNode()) qqreadwithdraw();
             //现金提现
             else if (b.getHours() == 23) qqreadwithdraw(); //现金提现
           } else if (i == 9) {
@@ -323,6 +323,11 @@ function qqreadwithdraw() {
       withdraw = JSON.parse(data);
       if (withdraw.data.code == 0) tz += `【现金提现】:成功提现10元\n`;
       kz += `【现金提现】:成功提现10元\n`;
+      notify.sendNotify(
+        "qq阅读",
+        `${info.data.user.nickName}---【现金提现】:成功提现10元`
+      );
+
       resolve();
     });
   });

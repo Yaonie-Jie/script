@@ -1,4 +1,5 @@
 const $ = new Env("互助码");
+const notify = require("./sendNotify");
 const shareCodes = [
   //我的
   {
@@ -147,6 +148,7 @@ function checkWhetherNeedAgain(resp, fun, url, name) {
 function showMsg() {
   return new Promise((resolve) => {
     $.msg($.name, "", $.result.join("\n"));
+    notify.sendNotify($.name, $.result.join("\n\n"));
     resolve();
   });
 }
