@@ -323,11 +323,6 @@ function qqreadwithdraw() {
       withdraw = JSON.parse(data);
       if (withdraw.data.code == 0) tz += `【现金提现】:成功提现10元\n`;
       kz += `【现金提现】:成功提现10元\n`;
-      notify.sendNotify(
-        "qq阅读",
-        `${info.data.user.nickName}---【现金提现】:成功提现10元`
-      );
-
       resolve();
     });
   });

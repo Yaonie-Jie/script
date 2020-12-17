@@ -72,6 +72,8 @@ services:
     container_name: jd_scripts4
     tty: true
     volumes:
+      - ./my_crontab_list.sh:/scripts/docker/my_crontab_list.sh
+      - ./src:/scripts/xiaoyu
       - ./logs4:/scripts/logs
     environment:
       - JD_COOKIE=pt_key=AAJfzjRhADBDQFcLXEJu2bR3AeUb-PcW-zNN6twfNUdb4XsSh7WWpJzC3NZdhggo7RRgACzT_Aw;pt_pin=jd_490d7f4d4f8fd;
@@ -85,6 +87,7 @@ services:
       - FRUIT_BEAN_CARD= true
       - JOY_FEED_COUNT=40
       - JD_BEAN_SIGN_NOTIFY_SIMPLE=true
+      - CUSTOM_LIST_FILE=my_crontab_list.sh
       - PLANT_BEAN_SHARECODES=b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy
       - DDFACTORY_SHARECODES=P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg&P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg
       - DREAM_FACTORY_SHARE_CODES=fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==
