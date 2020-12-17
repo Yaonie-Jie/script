@@ -67,7 +67,6 @@ const cookieMod = {
 };
 
 const simpPost = function (req, type) {
-  console.log($axios);
   if (typeof $axios !== "undefined") return $axios(req);
   if (typeof $task !== "undefined") return $task.fetch(req);
   if (typeof $httpClient !== "undefined") {
