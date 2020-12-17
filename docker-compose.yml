@@ -6,6 +6,8 @@ services:
     container_name: jd_scripts1
     tty: true
     volumes:
+      - ./my_crontab_list.sh:/scripts/docker/my_crontab_list.sh
+      - ./src:/scripts/xiaoyu
       - ./logs1:/scripts/logs
     environment:
       - JD_COOKIE=pt_key=AAJftxrjADD9zqIP0V7pjDEkNpnTMVX6ZxRopB2avrIA69n81R0w37574iIlLEIbHWBav-n3yG4;pt_pin=993406467_m&pt_key=AAJfxMgoADBC4UVuCR7AZg3OIyeikLEy_dBDRID-qMRZchkXqg8UcAabzCCIqKAe2eUtbbUVbRE;pt_pin=jd_74d1b00658634&pt_key=AAJf1ttIADAcviRt_K2S6QXO7a3E0ANgjfojAvY_sUJOMgebhxX1ZqVv5U_SWRIk7kJXrpiA628;pt_pin=jd_HJvpwrDqLEqJ;
@@ -18,6 +20,7 @@ services:
       - FRUIT_BEAN_CARD= true
       - JOY_FEED_COUNT=40
       - JD_BEAN_SIGN_NOTIFY_SIMPLE=true
+      - CUSTOM_LIST_FILE=my_crontab_list.sh
       - PLANT_BEAN_SHARECODES=e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea@4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy&e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea@4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy&e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea@4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy
       - DREAM_FACTORY_SHARE_CODES=VUFcFE8mE-y7N_33EOWn3Q==@C-1-4msNcWJ7Gq4GO4Xq2w==&VUFcFE8mE-y7N_33EOWn3Q==@C-1-4msNcWJ7Gq4GO4Xq2w==&VUFcFE8mE-y7N_33EOWn3Q==@C-1-4msNcWJ7Gq4GO4Xq2w==
   jd_scripts2: #姐姐
@@ -26,6 +29,7 @@ services:
     container_name: jd_scripts2
     tty: true
     volumes:
+      - ./my_crontab_list.sh:/scripts/docker/my_crontab_list.sh
       - ./logs2:/scripts/logs
     environment:
       - JD_COOKIE=pt_key=AAJf0c19ADCM4AgaPTJAy4LUZuq8RUAm7nnlPGrX6VmcLruYKjABW4kfzFZyQFKEhHUFsX0Wu2E;pt_pin=LemonCC1018&pt_key=AAJf0dSLADDvngPs1rjmc1kAeOvk42DX4MXWgaiNOuWDhL2KsSpiMdb5NS_gtJRO0oUiyuETZ78;pt_pin=ming121038673;
@@ -39,6 +43,7 @@ services:
       - JOY_FEED_COUNT=40
       - FACTORAY_WANTPRODUCT_NAME=投影仪
       - JD_BEAN_SIGN_NOTIFY_SIMPLE=true
+      - CUSTOM_LIST_FILE=my_crontab_list.sh
       - PLANT_BEAN_SHARECODES=b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy
       - DDFACTORY_SHARECODES=P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg&P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg
       - DREAM_FACTORY_SHARE_CODES=fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==
@@ -49,6 +54,7 @@ services:
     container_name: jd_scripts3
     tty: true
     volumes:
+      - ./my_crontab_list.sh:/scripts/docker/my_crontab_list.sh
       - ./logs3:/scripts/logs
     environment:
       - JD_COOKIE=pt_key=AAJfw2rqADDpGGI0_NkClE3Qc1NSl_WIAno49dFk1jLcVvSWMOCORF2GojoHaghdSTdvwuFBxKo;pt_pin=jd_4ea9c773b942b&pt_key=AAJfvKQPADDz5iqn2r2hTkT2lAIvgLVXTTzQzoD2CSL7l2BbWsQhVDdKVu8_ekbbt-6S6xkh3YM;pt_pin=jd_4187a2b60c619&pt_key=AAJfyivnADDuUAC1y6OuLXYRaW5vC44ylGZ7MjV72MmVnTwVzU6OearSFXKEz3awRAkm6IQ3dNU;pt_pin=jd_wNNPtStaTdWX;
@@ -62,6 +68,7 @@ services:
       - JOY_FEED_COUNT=40
       - FACTORAY_WANTPRODUCT_NAME=投影仪
       - JD_BEAN_SIGN_NOTIFY_SIMPLE=true
+      - CUSTOM_LIST_FILE=my_crontab_list.sh
       - PLANT_BEAN_SHARECODES=b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy
       - DDFACTORY_SHARECODES=P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg&P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg&P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg
       - DREAM_FACTORY_SHARE_CODES=fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==
@@ -73,7 +80,6 @@ services:
     tty: true
     volumes:
       - ./my_crontab_list.sh:/scripts/docker/my_crontab_list.sh
-      - ./src:/scripts/xiaoyu
       - ./logs4:/scripts/logs
     environment:
       - JD_COOKIE=pt_key=AAJfzjRhADBDQFcLXEJu2bR3AeUb-PcW-zNN6twfNUdb4XsSh7WWpJzC3NZdhggo7RRgACzT_Aw;pt_pin=jd_490d7f4d4f8fd;
