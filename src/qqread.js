@@ -97,9 +97,7 @@ if ($.isNode()) {
     `============ 共${qqreadtimehdArr.length}个企鹅读书账号  =============\n`
   );
   console.log(
-    `============ 脚本执行-北京时间(UTC+8)：${new Date(
-      new Date().getTime() + 8 * 60 * 60 * 1000
-    ).toLocaleString()}  =============\n`
+    `============ 脚本执行-北京时间(UTC+8)：${new Date().toLocaleString()}  =============\n`
   );
 } else {
   qqreadbdArr.push($.getdata("qqreadbd"));
@@ -656,9 +654,7 @@ function qqreadpick() {
 
 function showmsg() {
   if ($.isNode()) {
-    tz += `\n\n========= 脚本执行-北京时间(UTC+8)：${new Date(
-      new Date().getTime() + 8 * 60 * 60 * 1000
-    ).toLocaleString()} \n\n`;
+    tz += `\n\n========= 脚本执行-北京时间(UTC+8)：${new Date().toLocaleString()} \n\n`;
   } else
     tz += `\n\n========= 脚本执行-北京时间(UTC+8)：${new Date(
       new Date().getTime()
