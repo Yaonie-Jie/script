@@ -8,6 +8,7 @@ const shareCodes = [
     mc: "MTE1NDAxNzcwMDAwMDAwMzUyOTU3ODk=",
     ddgc: "P04z54XCjVWnYaS5jwBC2T423hMkgs0",
     jxgc: "fhEyWnDSm2PmfOajBltZWg==",
+    jdzz: "AAjxVm62WyTMPZz0",
   },
   //我的小号
   {
@@ -16,6 +17,7 @@ const shareCodes = [
     mc: "MTE1NDUyMjEwMDAwMDAwNDI0MjEyMzc=",
     ddgc: "P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA",
     jxgc: "07HXmMgtDo7VQFSb8oxXxA==",
+    jdzz: "AUWE559fWjXJKfCGEqD0w",
   },
   //小费
   {
@@ -24,6 +26,7 @@ const shareCodes = [
     mc: "MTE1NDQ5OTUwMDAwMDAwMzUxNzg5MTk=",
     ddgc: "P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg",
     jxgc: "vmlNjZVbTsZ2lzeFh3tHYA==",
+    jdzz: "AUWE5mKnEzGcICGb91XpJkQ",
   },
   //   胖
   {
@@ -32,6 +35,7 @@ const shareCodes = [
     mc: "MTE1NDQ5OTUwMDAwMDAwMzkwMzM5NzE=",
     ddgc: "P04z54XCjVWnYaS5m9cZ2StjHUZkkmwtnsRdio",
     jxgc: "VUFcFE8mE-y7N_33EOWn3Q==",
+    jdzz: "AUWE5m_jBxGYPD2Oq1HhIxw",
   },
   //   王硕
   {
@@ -40,6 +44,7 @@ const shareCodes = [
     mc: "MTEzMzI0OTE0NTAwMDAwMDA0MDk2NjkyNw==",
     ddgc: "P04z54XCjVWnYaS5m9cZ2T51XsblwYlhjsxmKc",
     jxgc: "mMgaT8eM2vngwPhSUPlm4w==",
+    jdzz: "AUWE5m6yYymQKWmb4jnpLnA",
   },
   //   ma
   {
@@ -48,6 +53,7 @@ const shareCodes = [
     mc: "MTE1NDUwMTI0MDAwMDAwMDQxODY4NDc1",
     ddgc: "P04z54XCjVWnYaS5m9cZ2T51XsblwYlhjsxmKc",
     jxgc: "C-1-4msNcWJ7Gq4GO4Xq2w==",
+    jdzz: "AUWE52NPurXFrTDGciRsi",
   },
   //姐姐
   {
@@ -56,6 +62,7 @@ const shareCodes = [
     mc: "MTE1NDUwMTI0MDAwMDAwMDQyMTkxNDQx",
     ddgc: "P04z54XCjVWnYaS5kldVT-mrg9LlcqZ",
     jxgc: "SHhVoR8WaIJEbFbS-rCz2w==",
+    jdzz: "Ad2ALwPPjvjQICWg",
   },
   //姐夫
   {
@@ -64,6 +71,7 @@ const shareCodes = [
     mc: "MTEzMzI0OTE0NTAwMDAwMDA0MjE5NjQ1NQ==",
     ddgc: "P04z54XCjVWnYaS5mhRVjf5331KlkgNJ2I",
     jxgc: "jER5O2NJDZjht6QtbM1bGA==",
+    jdzz: "AVmwIyKySzDULAGb_3g",
   },
 ];
 $.result = [];
@@ -72,7 +80,7 @@ $.random = 5;
 !(async () => {
   console.log(`\n此脚本延迟${$.random}秒执行\n`);
   for (let i = 0; i < shareCodes.length; i++) {
-    const { zd, nc, mc, ddgc, jxgc } = shareCodes[i];
+    const { zd, nc, mc, ddgc, jxgc, jdzz } = shareCodes[i];
     await $.wait($.random);
     zd &&
       (await create(
@@ -103,6 +111,12 @@ $.random = 5;
         `http://api.turinglabs.net/api/v1/jd/jxfactory/create/${jxgc}/`,
         "京喜工厂"
       ));
+    jdzz &&
+      (await create(
+        `https://code.chiang.fun/api/v1/jd/jdzz/create/${jdzz}/`,
+        "京东赚赚"
+      ));
+    await $.wait($.random);
   }
   await showMsg();
 })()
@@ -148,7 +162,7 @@ function checkWhetherNeedAgain(resp, fun, url, name) {
 function showMsg() {
   return new Promise((resolve) => {
     $.msg($.name, "", $.result.join("\n"));
-    notify.sendNotify($.name, $.result.join("\n\n"));
+    notify.sendNotify($.name, $.result.join("\n"));
     resolve();
   });
 }
