@@ -20,7 +20,7 @@ let message = "",
 let jdNotify = false; //是否关闭通知，false打开通知推送，true关闭通知推送
 const JD_API_HOST = "https://api.m.jd.com";
 let randomCount = $.isNode() ? 20 : 5;
-const BUY_JOY_LEVEL = 28; // 默认购买的joy等级
+const BUY_JOY_LEVEL = 1; // 默认购买的joy等级
 const MERGE_WAIT = process.env.MERGE_WAIT ? process.env.MERGE_WAIT : 1000 * 60; // 默认1分钟一次购买合并
 const PRODUCE_WAIT = process.env.PRODUCE_WAIT ? process.env.PRODUCE_WAIT : 1000; // 默认1秒一次模拟挂机
 
@@ -78,7 +78,6 @@ const PRODUCE_WAIT = process.env.PRODUCE_WAIT ? process.env.PRODUCE_WAIT : 1000;
   });
 
 class CrazyJoy {
-  _joyIds = [];
   _shop = [];
   ctx = {};
 
@@ -93,6 +92,9 @@ class CrazyJoy {
     await this.doSign();
     setInterval((__) => this.produce(), PRODUCE_WAIT); // 模拟挂机1s一次
     setInterval((__) => this.checkAndMerge(), MERGE_WAIT); // 购买合并升级30分钟一次
+
+    // await this.produce()
+    // await this.checkAndMerge()
   }
 
   async checkAndMerge() {
@@ -179,7 +181,7 @@ class CrazyJoy {
               console.log(`${$.name} API请求失败，请检查网路重试`);
             } else {
               data = JSON.parse(data);
-              console.log("ddd----ddd", data);
+              // console.log('ddd----ddd', data)
               if (data.success && data.data.joyIds) {
                 this.ctx = data.data;
               }
@@ -341,6 +343,7 @@ class CrazyJoy {
               console.log(`${$.name} API请求失败，请检查网路重试`);
             } else {
               data = JSON.parse(data);
+              console.log(data);
               if (data.success) {
                 console.log(
                   `购买${joyLevel}级joy成功， 花费${data.data.coins}，下次购买费用 --> ${data.data.nextBuyPrice}， 剩余joy币 --> ${data.data.totalCoins}`
@@ -436,7 +439,6 @@ class CrazyJoy {
               console.log(`${$.name} API请求失败，请检查网路重试`);
             } else {
               data = JSON.parse(data);
-              console.log(data);
               if (data.success) {
                 this._shop = data.data.shop;
               }
@@ -521,7 +523,6 @@ function requireConfig() {
   return new Promise((resolve) => {
     console.log("开始获取配置文件\n");
     notify = $.isNode() ? require("../utils/sendNotify") : "";
-    //Node.js用户请在jdCookie.js处填写京东ck;
 
     console.log(`共${cookiesArr.length}个京东账号\n`);
     resolve();
