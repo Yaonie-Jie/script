@@ -7,7 +7,7 @@
  */
 
 const $ = new Env("疯狂的joy");
-let cookiesArr = [],
+let cookiesArr = ['pt_key=AAJf3uzMADBdFUQvawUc1pQvW1BCL_IpsE2QG3txhWMJclZAvnSh78w9W3Oy4eC669WKcpz8-is;pt_pin=993406467_m'],
   cookie = "",
   isBox = false,
   notify;
@@ -18,15 +18,7 @@ let jdNotify = false; //是否关闭通知，false打开通知推送，true关�
 const JD_API_HOST = "https://api.m.jd.com";
 let randomCount = $.isNode() ? 20 : 5;
 $.joyIds = [];
-const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const BUY_JOY_LEVEL = 28;
-if ($.isNode()) {
-  Object.keys(jdCookieNode).forEach((item) => {
-    cookiesArr.push(jdCookieNode[item]);
-  });
-  if (process.env.JD_DEBUG && process.env.JD_DEBUG === "false")
-    console.log = () => {};
-}
 
 !(async () => {
   await requireConfig();
@@ -438,9 +430,9 @@ function TotalBean() {
 function requireConfig() {
   return new Promise((resolve) => {
     console.log("开始获取配置文件\n");
-    notify = $.isNode() ? require("./sendNotify") : "";
+    notify = $.isNode() ? require("../utils/sendNotify") : "";
     //Node.js用户请在jdCookie.js处填写京东ck;
-    const jdCookieNode = $.isNode() ? require("./jdCookie.js") : "";
+    const jdCookieNode = $.isNode() ? require("../jdCookie.js") : "";
     if ($.isNode()) {
       Object.keys(jdCookieNode).forEach((item) => {
         if (jdCookieNode[item]) {
