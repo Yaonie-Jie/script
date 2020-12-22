@@ -49,7 +49,7 @@ services:
       - DDFACTORY_SHARECODES=P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg&P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg
       - DREAM_FACTORY_SHARE_CODES=fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==
       - FRUITSHARECODES=13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae&13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae
-  jd_scripts3: #胖墩&王硕&妈妈
+  jd_scripts3: #胖墩&王硕&妈妈&王硕
     image: akyakya/jd_scripts
     restart: always
     container_name: jd_scripts3
@@ -58,7 +58,7 @@ services:
       - ./my_crontab_list.sh:/scripts/docker/my_crontab_list.sh
       - ./logs3:/scripts/logs
     environment:
-      - JD_COOKIE=pt_key=AAJfw2rqADDpGGI0_NkClE3Qc1NSl_WIAno49dFk1jLcVvSWMOCORF2GojoHaghdSTdvwuFBxKo;pt_pin=jd_4ea9c773b942b&pt_key=AAJfvKQPADDz5iqn2r2hTkT2lAIvgLVXTTzQzoD2CSL7l2BbWsQhVDdKVu8_ekbbt-6S6xkh3YM;pt_pin=jd_4187a2b60c619&pt_key=AAJfyivnADDuUAC1y6OuLXYRaW5vC44ylGZ7MjV72MmVnTwVzU6OearSFXKEz3awRAkm6IQ3dNU;pt_pin=jd_wNNPtStaTdWX;
+      - JD_COOKIE=pt_key=AAJfw2rqADDpGGI0_NkClE3Qc1NSl_WIAno49dFk1jLcVvSWMOCORF2GojoHaghdSTdvwuFBxKo;pt_pin=jd_4ea9c773b942b&pt_key=AAJfvKQPADDz5iqn2r2hTkT2lAIvgLVXTTzQzoD2CSL7l2BbWsQhVDdKVu8_ekbbt-6S6xkh3YM;pt_pin=jd_4187a2b60c619&pt_key=AAJfyivnADDuUAC1y6OuLXYRaW5vC44ylGZ7MjV72MmVnTwVzU6OearSFXKEz3awRAkm6IQ3dNU;pt_pin=jd_wNNPtStaTdWX&pt_key=AAJf4c6nADDpdRXNSW_JKLozkdrFCoktSwM1yXOGFcDJLnJPuOfyWlbQpy894iuztAt9nqQ3MfM;pt_pin=jd_59cc8f9ce40bd;
       - DD_BOT_TOKEN=3d604445f0bbbb129185d0d244a218407f23630905276cb06eb0774fe012c689
       - DD_BOT_SECRET=SEC93c1887a89a0af24e25e1a742fc108fceeacaa0254fc158c50c3c1cc7bdfb362
       - UN_SUBSCRIBES=100&100&iPhone12&Apple京东自营旗舰店
