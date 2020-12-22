@@ -11,6 +11,8 @@ let cookiesArr = [
     "pt_key=AAJf3uzMADBdFUQvawUc1pQvW1BCL_IpsE2QG3txhWMJclZAvnSh78w9W3Oy4eC669WKcpz8-is;pt_pin=993406467_m",
     "pt_key=AAJfxMgoADBC4UVuCR7AZg3OIyeikLEy_dBDRID-qMRZchkXqg8UcAabzCCIqKAe2eUtbbUVbRE;pt_pin=jd_74d1b00658634",
     "pt_key=AAJf1ttIADAcviRt_K2S6QXO7a3E0ANgjfojAvY_sUJOMgebhxX1ZqVv5U_SWRIk7kJXrpiA628;pt_pin=jd_HJvpwrDqLEqJ",
+    "pt_key=AAJfw2rqADDpGGI0_NkClE3Qc1NSl_WIAno49dFk1jLcVvSWMOCORF2GojoHaghdSTdvwuFBxKo;pt_pin=jd_4ea9c773b942b",
+    "pt_key=AAJfyivnADDuUAC1y6OuLXYRaW5vC44ylGZ7MjV72MmVnTwVzU6OearSFXKEz3awRAkm6IQ3dNU;pt_pin=jd_wNNPtStaTdWX",
   ],
   isBox = false,
   notify;
@@ -91,8 +93,8 @@ class CrazyJoy {
     await this.gameState();
     await this.doSign();
     setInterval((__) => this.produce(), PRODUCE_WAIT); // 模拟挂机1s一次
-    setInterval((__) => this.checkAndMerge(), MERGE_WAIT); // 购买合并升级30分钟一次
-
+    setInterval((__) => this.checkAndMerge(), MERGE_WAIT); // 购买合并升级1分钟一次
+    setInterval((__) => this.obtainAward(), 1000 * 60 * 30); //领取金币，固定30分钟一次
     // await this.produce()
     // await this.checkAndMerge()
   }
@@ -118,7 +120,6 @@ class CrazyJoy {
       if (it > 0 && it < 34) {
         if (v.length > 1 && v.length > 2) {
           // 只合并一次，因为合并后joy索引会变化
-          console.log(it);
           await this.moveOrMerge(v[0], v[1]);
           await $.wait(1000 * 3);
         }
@@ -196,12 +197,11 @@ class CrazyJoy {
     });
   }
 
-  // 获得奖励
+  // 领取金币
   obtainAward() {
     return new Promise((resolve) => {
       const body = {
-        eventType: "LUCKY_BOX_DROP",
-        eventRecordId: "547749487320494080",
+        eventType: "HOUR_BENEFIT",
       };
       $.get(
         this.taskUrl("crazyJoy_event_obtainAward", body),
@@ -212,12 +212,8 @@ class CrazyJoy {
               console.log(`${$.name} API请求失败，请检查网路重试`);
             } else {
               data = JSON.parse(data);
-              if (data.success && data.data.coins) {
-                console.log(
-                  `账号${this._index + 1} ${this._nickName} 模拟挂机中 获得${
-                    data.data.coins
-                  }个币，当前拥有${data.data.totalCoinAmount}`
-                );
+              if (data.success) {
+                console.log(`领取金币奖励 --> ${data.data.coins}`);
               }
             }
           } catch (e) {
@@ -523,7 +519,6 @@ function requireConfig() {
   return new Promise((resolve) => {
     console.log("开始获取配置文件\n");
     notify = $.isNode() ? require("../utils/sendNotify") : "";
-
     console.log(`共${cookiesArr.length}个京东账号\n`);
     resolve();
   });
