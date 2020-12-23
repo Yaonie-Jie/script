@@ -24,6 +24,8 @@ services:
       - CUSTOM_LIST_FILE=my_crontab_list.sh
       - PLANT_BEAN_SHARECODES=e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea@4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy&e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea@4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy&e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea@4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy
       - DREAM_FACTORY_SHARE_CODES=VUFcFE8mE-y7N_33EOWn3Q==@C-1-4msNcWJ7Gq4GO4Xq2w==&VUFcFE8mE-y7N_33EOWn3Q==@C-1-4msNcWJ7Gq4GO4Xq2w==&VUFcFE8mE-y7N_33EOWn3Q==@C-1-4msNcWJ7Gq4GO4Xq2w==
+      - JDJOY_HELPSELF=true
+      - JDJOY_APPLYJDBEAN=500
   jd_scripts2: #姐姐
     image: akyakya/jd_scripts
     restart: always
@@ -49,6 +51,9 @@ services:
       - DDFACTORY_SHARECODES=P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg&P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg
       - DREAM_FACTORY_SHARE_CODES=fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==
       - FRUITSHARECODES=13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae&13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae
+      - JDJOY_HELPSELF=true
+      - JDJOY_APPLYJDBEAN=500
+      - JDJOY_SHARECODES=j4qNStBJlcSupeIHW6wjJQ==@I3LfPdCO9Q6lcEYaf7ZBy6t9zd5YaBeE@L0rVrwM-aQLYs6Knuo0wCw==
   jd_scripts3: #胖墩&王硕&妈妈&王硕
     image: akyakya/jd_scripts
     restart: always
