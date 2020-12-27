@@ -81,7 +81,7 @@ let qqreadtimeHD = [
   '{"ywsession":"886al1rfdyowvgxxduklhqtvieuna3bx","Cookie":"ywguid=1365055270;ywkey=ywz7Kuk6PI1P;platform=ios;channel=mqqmina;mpVersion=0.30.0;qq_ver=8.4.17;os_ver=iOS 14.2;mpos_ver=1.21.0;platform=ios;openid=4040720EB3ABBCAA92CEDFACC8EC3300","Connection":"keep-alive","Content-Type":"application/json","Accept":"*/*","Host":"mqqapi.reader.qq.com","User-Agent":"QQ/8.4.17.638 CFNetwork/1206 Darwin/20.1.0","Referer":"https://appservice.qq.com/1110657249/0.30.0/page-frame.html","Accept-Language":"zh-cn","Accept-Encoding":"gzip, deflate, br","mpversion":"0.32.5"}',
   '{"ywsession":"84erx8h13d9b5ng132i2kzfm07i8t9td","Cookie":"ywguid=248478135;ywkey=ywQykKGEwjDF;platform=ios;channel=mqqmina;mpVersion=0.32.5;qq_ver=8.4.5;os_ver=iOS 13.2.3;mpos_ver=1.18.0;platform=ios;openid=0C2B3177430FEBC2BD6899A8EEE55A56","Connection":"keep-alive","Content-Type":"application/json","Accept":"*/*","Host":"mqqapi.reader.qq.com","User-Agent":"QQ/8.4.5.626 CFNetwork/1120 Darwin/19.0.0","Referer":"https://appservice.qq.com/1110657249/0.32.5/page-frame.html","Accept-Language":"zh-cn","Accept-Encoding":"gzip, deflate, br","mpversion":"0.32.5"}',
   '{"ywsession":"notc0he94fkcqyo9tbhpsgeee27how2t","Cookie":"ywguid=2061913435;ywkey=ywyv3tRPAfMQ;platform=ios;channel=mqqmina;mpVersion=0.32.5;qq_ver=8.4.5;os_ver=iOS 13.2.3;mpos_ver=1.18.0;platform=ios;openid=0B9F94052F27ECEDA02019DAAC1255E1","Connection":"keep-alive","Content-Type":"application/json","Accept":"*/*","Host":"mqqapi.reader.qq.com","User-Agent":"QQ/8.4.5.626 CFNetwork/1120 Darwin/19.0.0","Referer":"https://appservice.qq.com/1110657249/0.32.5/page-frame.html","Accept-Language":"zh-cn","Accept-Encoding":"gzip, deflate, br","mpversion":"0.32.5"}',
-  '{"ywsession":"10nnskguobtgv7sdiukutx8pkmcrsg8q","Cookie":"ywguid=1792750529;ywkey=ywemcbEW649f;platform=ios;channel=mqqmina;mpVersion=0.32.5;qq_ver=8.4.5;os_ver=iOS 13.2.3;mpos_ver=1.18.0;platform=ios;openid=DD52CCE8A2AD4B50CFA38C1106F33208","Connection":"keep-alive","Content-Type":"application/json","Accept":"*/*","Host":"mqqapi.reader.qq.com","User-Agent":"QQ/8.4.5.626 CFNetwork/1120 Darwin/19.0.0","Referer":"https://appservice.qq.com/1110657249/0.32.5/page-frame.html","Accept-Language":"zh-cn","Accept-Encoding":"gzip, deflate, br","mpversion":"0.32.5"}',
+  '{"ywsession":"anpkygdpwhvsalkfs1t8dmd3yzbacsj0","Cookie":"ywguid=1792750529;ywkey=ywfYbMYxUBU4;platform=ios;channel=mqqmina;mpVersion=0.38.2;qq_ver=8.4.5;os_ver=iOS 13.2.3;mpos_ver=1.18.0;platform=ios;openid=DD52CCE8A2AD4B50CFA38C1106F33208","Connection":"keep-alive","Content-Type":"application/json","Accept":"*/*","Host":"mqqapi.reader.qq.com","User-Agent":"QQ/8.4.5.626 CFNetwork/1120 Darwin/19.0.0","Referer":"https://appservice.qq.com/1110657249/0.38.2/page-frame.html","Accept-Language":"zh-cn","Accept-Encoding":"gzip, deflate, br","mpversion":"0.38.2"}',
   '{"ywsession":"u2mu5ty8y6n6bkizaik8l71cr6sbm495","Cookie":"ywguid=2449330130;ywkey=ywUwYd8BBXPq;platform=ios;channel=mqqmina;mpVersion=0.38.2;qq_ver=8.4.5;os_ver=iOS 13.2.3;mpos_ver=1.18.0;platform=ios;openid=2449330130","Connection":"keep-alive","Content-Type":"application/json","Accept":"*/*","Host":"mqqapi.reader.qq.com","User-Agent":"QQ/8.4.5.626 CFNetwork/1120 Darwin/19.0.0","Referer":"https://appservice.qq.com/1110657249/0.38.2/page-frame.html","Accept-Language":"zh-cn","Accept-Encoding":"gzip, deflate, br","mpversion":"0.38.2"}',
 
   '{"ywsession":"0dxj3rh9dttyx4i56mtiqgb6tkf88qpo","Cookie":"ywguid=4638072;ywkey=ywKYLaK49Ik0;platform=ios;channel=mqqmina;mpVersion=0.32.5","Connection":"keep-alive","Content-Type":"application/json","Accept":"*/*","Host":"mqqapi.reader.qq.com","User-Agent":"QQ/8.4.17.638 CFNetwork/1206 Darwin/20.1.0","Referer":"https://appservice.qq.com/1110657249/0.32.5/page-frame.html","Accept-Language":"zh-cn","Accept-Encoding":"gzip, deflate, br","mpversion":"0.32.5"}',
@@ -347,10 +347,14 @@ function qqreadinfo() {
     };
     $.get(toqqreadinfourl, (error, response, data) => {
       if (logs) $.log(`${jsname}, 用户名: ${data}`);
-
       info = JSON.parse(data);
+      console.log(info)
+
       if (!info.data.isLogin) {
-        notify.sendNotify(jsname, "登录失效");
+        notify.sendNotify(
+          jsname,
+          JSON.parse(qqreadtimeheaderVal).ywguid + " 登录失效"
+        );
       }
       kz += `\n========== 【${info.data.user.nickName}】 ==========\n`;
       tz += `\n========== 【${info.data.user.nickName}】 ==========\n`;
