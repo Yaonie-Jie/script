@@ -14,34 +14,35 @@ services:
       - DD_BOT_TOKEN=3d604445f0bbbb129185d0d244a218407f23630905276cb06eb0774fe012c689
       - DD_BOT_SECRET=SEC93c1887a89a0af24e25e1a742fc108fceeacaa0254fc158c50c3c1cc7bdfb362
       - UN_SUBSCRIBES=100&100&iPhone12&Apple京东自营旗舰店
-      - MARKET_COIN_TO_BEANS=20
-      - MARKET_REWARD_NOTIFY=false
-      - PET_NOTIFY_CONTROL=true
+        #农场使用水滴换豆卡
       - FRUIT_BEAN_CARD= true
+        #宠汪汪喂食数量
       - JOY_FEED_COUNT=40
+        #东东工厂心仪商品
       - FACTORAY_WANTPRODUCT_NAME=投影仪
+        #签到结果简洁通知
       - JD_BEAN_SIGN_NOTIFY_SIMPLE=true
+        #挂载自定义cron
       - CUSTOM_LIST_FILE=my_crontab_list.sh
-      - PLANT_BEAN_SHARECODES=e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea@4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy&e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea@4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy&e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea@4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy
-      - DREAM_FACTORY_SHARE_CODES=VUFcFE8mE-y7N_33EOWn3Q==@C-1-4msNcWJ7Gq4GO4Xq2w==&VUFcFE8mE-y7N_33EOWn3Q==@C-1-4msNcWJ7Gq4GO4Xq2w==&VUFcFE8mE-y7N_33EOWn3Q==@C-1-4msNcWJ7Gq4GO4Xq2w==
+        #疯狂的joy开启循环助力
       - JDJOY_HELPSELF=true
-      - JDJOY_APPLYJDBEAN=500
+        #种豆得豆互助码
+      - PLANT_BEAN_SHARECODES=e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea@4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy&e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea@4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy&e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea@4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy
+        #京喜工厂互助码
+      - DREAM_FACTORY_SHARE_CODES=VUFcFE8mE-y7N_33EOWn3Q==@C-1-4msNcWJ7Gq4GO4Xq2w==@SHhVoR8WaIJEbFbS-rCz2w==
+
   jd_scripts2: #胖墩&王硕&妈妈&王硕&姐姐&姐夫
     image: akyakya/jd_scripts
     restart: always
     container_name: jd_scripts2
     tty: true
     volumes:
-      - ./my_crontab_list.sh:/scripts/docker/my_crontab_list.sh
       - ./logs2:/scripts/logs
     environment:
       - JD_COOKIE=pt_key=AAJfw2rqADDpGGI0_NkClE3Qc1NSl_WIAno49dFk1jLcVvSWMOCORF2GojoHaghdSTdvwuFBxKo;pt_pin=jd_4ea9c773b942b&pt_key=AAJf5DUnADBPCSmZbre5BqPmHOdKv1jVTXN6tUfAIhULglCVwUKd50jaHguC3aY79m9DdWUS8tk;pt_pin=jd_4187a2b60c619&pt_key=AAJfyivnADDuUAC1y6OuLXYRaW5vC44ylGZ7MjV72MmVnTwVzU6OearSFXKEz3awRAkm6IQ3dNU;pt_pin=jd_wNNPtStaTdWX&pt_key=AAJf4c6nADDpdRXNSW_JKLozkdrFCoktSwM1yXOGFcDJLnJPuOfyWlbQpy894iuztAt9nqQ3MfM;pt_pin=jd_59cc8f9ce40bd&pt_key=AAJf0c19ADCM4AgaPTJAy4LUZuq8RUAm7nnlPGrX6VmcLruYKjABW4kfzFZyQFKEhHUFsX0Wu2E;pt_pin=LemonCC1018&pt_key=AAJf0dSLADDvngPs1rjmc1kAeOvk42DX4MXWgaiNOuWDhL2KsSpiMdb5NS_gtJRO0oUiyuETZ78;pt_pin=ming121038673;
       - DD_BOT_TOKEN=3d604445f0bbbb129185d0d244a218407f23630905276cb06eb0774fe012c689
       - DD_BOT_SECRET=SEC93c1887a89a0af24e25e1a742fc108fceeacaa0254fc158c50c3c1cc7bdfb362
       - UN_SUBSCRIBES=100&100&iPhone12&Apple京东自营旗舰店
-      - MARKET_COIN_TO_BEANS=20
-      - MARKET_REWARD_NOTIFY=false
-      - PET_NOTIFY_CONTROL=true
       - FRUIT_BEAN_CARD= true
       - JOY_FEED_COUNT=40
       - FACTORAY_WANTPRODUCT_NAME=投影仪
@@ -49,10 +50,9 @@ services:
       - CUSTOM_LIST_FILE=my_crontab_list.sh
       - PLANT_BEAN_SHARECODES=b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy
       - DDFACTORY_SHARECODES=P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg&P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg
-      - DREAM_FACTORY_SHARE_CODES=fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==
-      - FRUITSHARECODES=13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae&13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae
+      - DREAM_FACTORY_SHARE_CODES=fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==
+      - FRUITSHARECODES=13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae
       - JDJOY_HELPSELF=true
-      - JDJOY_APPLYJDBEAN=500
       - JDJOY_SHARECODES=j4qNStBJlcSupeIHW6wjJQ==@I3LfPdCO9Q6lcEYaf7ZBy6t9zd5YaBeE@L0rVrwM-aQLYs6Knuo0wCw==
   jd_scripts3:
     image: akyakya/jd_scripts
@@ -60,25 +60,20 @@ services:
     container_name: jd_scripts3
     tty: true
     volumes:
-      - ./my_crontab_list.sh:/scripts/docker/my_crontab_list.sh
       - ./logs3:/scripts/logs
     environment:
       - JD_COOKIE=pt_key=AAJfzjRhADBDQFcLXEJu2bR3AeUb-PcW-zNN6twfNUdb4XsSh7WWpJzC3NZdhggo7RRgACzT_Aw;pt_pin=jd_490d7f4d4f8fd;
       - DD_BOT_TOKEN=3d604445f0bbbb129185d0d244a218407f23630905276cb06eb0774fe012c689
       - DD_BOT_SECRET=SEC93c1887a89a0af24e25e1a742fc108fceeacaa0254fc158c50c3c1cc7bdfb362
       - UN_SUBSCRIBES=100&100&iPhone12&Apple京东自营旗舰店
-      - MARKET_COIN_TO_BEANS=20
-      - MARKET_REWARD_NOTIFY=false
-      - PET_NOTIFY_CONTROL=true
       - FRUIT_BEAN_CARD= true
       - JOY_FEED_COUNT=40
       - FACTORAY_WANTPRODUCT_NAME=投影仪
       - JD_BEAN_SIGN_NOTIFY_SIMPLE=true
       - CUSTOM_LIST_FILE=my_crontab_list.sh
       - JDJOY_HELPSELF=true
-      - JDJOY_APPLYJDBEAN=500
       - JDJOY_SHARECODES=j4qNStBJlcSupeIHW6wjJQ==@I3LfPdCO9Q6lcEYaf7ZBy6t9zd5YaBeE@L0rVrwM-aQLYs6Knuo0wCw==
       - PLANT_BEAN_SHARECODES=b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy
       - DDFACTORY_SHARECODES=P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg&P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg&P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg
-      - DREAM_FACTORY_SHARE_CODES=fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==
       - FRUITSHARECODES=13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae&13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae&13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae
+      - DREAM_FACTORY_SHARE_CODES=fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==

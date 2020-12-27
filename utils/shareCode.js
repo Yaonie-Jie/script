@@ -37,15 +37,6 @@ const shareCodes = [
     jxgc: "VUFcFE8mE-y7N_33EOWn3Q==",
     jdzz: "AUWE5m_jBxGYPD2Oq1HhIxw",
   },
-  //   王硕
-  {
-    zd: "e7lhibzb3zek2sukqc23c4te54w2z2ylg7p7loq",
-    nc: "78d81e320aad4add99ef2992b7c76bd8",
-    mc: "MTEzMzI0OTE0NTAwMDAwMDA0MDk2NjkyNw==",
-    ddgc: "P04z54XCjVWnYaS5m9cZ2T51XsblwYlhjsxmKc",
-    jxgc: "mMgaT8eM2vngwPhSUPlm4w==",
-    jdzz: "AUWE5m6yYymQKWmb4jnpLnA",
-  },
   //   ma
   {
     zd: "4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy",
@@ -54,6 +45,15 @@ const shareCodes = [
     ddgc: "P04z54XCjVWnYaS5m9cZ2T51XsblwYlhjsxmKc",
     jxgc: "C-1-4msNcWJ7Gq4GO4Xq2w==",
     jdzz: "AUWE52NPurXFrTDGciRsi",
+  },
+  //   王硕
+  {
+    zd: "e7lhibzb3zek2sukqc23c4te54w2z2ylg7p7loq",
+    nc: "78d81e320aad4add99ef2992b7c76bd8",
+    mc: "MTEzMzI0OTE0NTAwMDAwMDA0MDk2NjkyNw==",
+    ddgc: "P04z54XCjVWnYaS5m9cZ2T51XsblwYlhjsxmKc",
+    jxgc: "mMgaT8eM2vngwPhSUPlm4w==",
+    jdzz: "AUWE5m6yYymQKWmb4jnpLnA",
   },
   //姐姐
   {
