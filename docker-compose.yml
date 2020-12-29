@@ -16,6 +16,8 @@ services:
       - UN_SUBSCRIBES=100&100&iPhone12&Apple京东自营旗舰店
         #农场使用水滴换豆卡
       - FRUIT_BEAN_CARD= true
+        #萌宠是否静默运行
+      - PET_NOTIFY_CONTROL=true
         #宠汪汪喂食数量
       - JOY_FEED_COUNT=40
         #东东工厂心仪商品
@@ -44,6 +46,8 @@ services:
       - DD_BOT_SECRET=SEC93c1887a89a0af24e25e1a742fc108fceeacaa0254fc158c50c3c1cc7bdfb362
       - UN_SUBSCRIBES=100&100&iPhone12&Apple京东自营旗舰店
       - FRUIT_BEAN_CARD= true
+        #萌宠是否静默运行
+      - PET_NOTIFY_CONTROL=true
       - JOY_FEED_COUNT=40
       - FACTORAY_WANTPRODUCT_NAME=投影仪
       - JD_BEAN_SIGN_NOTIFY_SIMPLE=true
@@ -67,6 +71,8 @@ services:
       - DD_BOT_SECRET=SEC93c1887a89a0af24e25e1a742fc108fceeacaa0254fc158c50c3c1cc7bdfb362
       - UN_SUBSCRIBES=100&100&iPhone12&Apple京东自营旗舰店
       - FRUIT_BEAN_CARD= true
+        #萌宠是否静默运行
+      - PET_NOTIFY_CONTROL=true
       - JOY_FEED_COUNT=40
       - FACTORAY_WANTPRODUCT_NAME=投影仪
       - JD_BEAN_SIGN_NOTIFY_SIMPLE=true
