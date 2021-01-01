@@ -7,6 +7,6 @@
 #提交互助
 30 4 1,10,20 * * /root/.nvm/versions/node/v14.15.1/bin/node /root/script/utils/shareCode.js >> /root/script/log/shareCode.log 2>&1
 #聚看
-10 8-22 * * * /root/.nvm/versions/node/v14.15.1/bin/node /root/script/src/jukan.js >> /root/script/log/jukan.log 2>&1
+*/20 */2 * * * /root/.nvm/versions/node/v14.15.1/bin/node /root/script/src/jukan.js >> /root/script/log/jukan.log 2>&1
 
 55 23 * * * rm -rf /root/script/log/*.log
