@@ -28,6 +28,8 @@ cron "0,30 * * * *" script-path=https://raw.githubusercontent.com/shylocks/Loon/
 hostname = www.xiaodouzhuan.cn
 */
 const API_HOST = "https://www.xiaodouzhuan.cn";
+const notify = require("../utils/sendNotify");
+
 let UA =
   "Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148";
 const DATE = `${new Date().getUTCFullYear()}${(new Date().getUTCMonth() + 1)
@@ -38,7 +40,8 @@ const $ = new Env("聚看点");
 let sum = 0;
 let cookiesArr = [
     "JSESSIONID=FB76B4B1DA0C444658014F7036295E48; UM_distinctid=176bc36ef9c40b-08a499caecdb328-3e176f50-5a900-176bc36ef9da84; CNZZDATA1274871401=1649421482-1609471069-https%253A%252F%252Fwww.xiaodouzhuan.cn%252F%7C1609471069; CNZZDATA1275507390=161037599-1609470365-%7C1609470365; SERVERID=e2e52ee42199401ef190e9b9166db76a|1609475485|1609475484; xz_jkd_appkey=5fd13d5e58f14f73adc9731d7c479a37!iOS!5.6.5",
-    'JSESSIONID=CA1894574563B6826D1CD91D7F06E4D3; CNZZDATA1274871401=1378428649-1609563111-https%253A%252F%252Fwww.xiaodouzhuan.cn%252F%7C1609563111; CNZZDATA1275507390=2039801441-1609562774-%7C1609562774; SERVERID=e2e52ee42199401ef190e9b9166db76a|1609566105|1609566104; UM_distinctid=176c19dad5427e-0e8532713e60b1-2a463a35-c0000-176c19dad55bc2; xz_jkd_appkey=a04ce67543ba425e8636ee2be281d7fb!iOS!5.6.5'
+    "JSESSIONID=CA1894574563B6826D1CD91D7F06E4D3; CNZZDATA1274871401=1378428649-1609563111-https%253A%252F%252Fwww.xiaodouzhuan.cn%252F%7C1609563111; CNZZDATA1275507390=2039801441-1609562774-%7C1609562774; SERVERID=e2e52ee42199401ef190e9b9166db76a|1609566105|1609566104; UM_distinctid=176c19dad5427e-0e8532713e60b1-2a463a35-c0000-176c19dad55bc2; xz_jkd_appkey=a04ce67543ba425e8636ee2be281d7fb!iOS!5.6.5",
+    "JSESSIONID=292BAA517F01DC2892134765173231C2; SERVERID=4b3bae870580896bded23ba1131db97c|1609602493|1609602490; CNZZDATA1274871401=2071498480-1609600975-https%253A%252F%252Fwww.xiaodouzhuan.cn%252F%7C1609600975; CNZZDATA1275507390=1730986182-1609600623-%7C1609600623; UM_distinctid=176c3c8e4d278f-080d58d7bb29188-3c176e50-3d10d-176c3c8e4d397f; xz_jkd_appkey=a5303085317b4e19ab979d927f441396!iOS!5.6.5",
   ],
   cookie = "",
   message;
@@ -147,6 +150,8 @@ if (typeof $request !== "undefined") {
         $.index = i + 1;
         if (!$.openId) {
           console.log(`Cookies${$.index}已失效！`);
+          notify.sendNotify('聚看点', `Cookies${$.index}已失效！`);
+
           break;
         }
         if (liveBody[$.openId]) {
