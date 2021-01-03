@@ -1,21 +1,194 @@
-const logs = 0; //日志开关
-const notify = require("../utils/sendNotify");
-const $ = new Env("快手极速版");
-const cookieVal =
-  "appver=3.2.10.264; c=a; client_key=63b2bdd7; countryCode=cn; did=DE7351E7-0C03-43DD-965A-83ECEE1256F4; egid=DFP3E162EC9476EC9D6002F0BF0B6C326CAD045A24B89D38DC12C6D1EA7A135D; gid=; kpf=IPHONE; kpn=NEBULA; kuaishou.api_st=Cg9rdWFpc2hvdS5hcGkuc3QSsAEwGS5_pOQ2Th9aarDe8BuQKcrg-piRyNXMi-7Fq7abPTB4zgdcLH3wuRWIq-yFfM_pVltPsE5_Kvk64piTIuB2vz3H7jwKRZz13qymkliDbygdTqUm7qy8jaujjwlHppuz7VlFYZXE_Hyp8yYY8s2xNaYQlvpfo9zoxmfOi6FD6sYD5oI278hbeMlmSoefhc57W9Q_WWRk-TkXiQClmxvyHbVdrPKbOdd408_-KRrV2xoS2XvDR99SRDOqaScwEugPIgVVIiBoor-Tx5QeFo9g4xIErKZo5GjThcDlP29Vm_-xbxGjsigFMAE; kuaishou.h5_st=Cg5rdWFpc2hvdS5oNS5zdBKgATPLFdGu_ZP0I8uyBN4lyp-BE1fK74IB1ZqBSSUWZ-MX6ecK7TDGPgbrxtzZz-W0CfcKG8L3kxF7TuOXzstxYUYreT1QJMlCfZkdq3eGdMNkApeGRdMZc2ZDeFG_KZ85v2OWfmqhrpMTWDNHnLWVbAuBxplKyjnZKbGj_IET9wVSHhcElGtgTQnC4rDkBV87Xk8yFrLw8k9ENnzDLwSFZ0AaEp0eftNRumGRlTzDnTam4VQFlCIgOBByon8p4-8Un5ozCTdLM4IqB0SJGXUzRDHLdwh0ZkwoBTAB; kuaishou.sixin.login_st=ChdrdWFpc2hvdS5zaXhpbi5sb2dpbi5zdBKgAe4CwAVWfX0WFH7OrJ0NQrqtTQyIfpeU3AlzCLDdwjzNVIPIzu6z5_I2utN4lhREpAo8sxJbH3ylNHIoTmOEmZWWC6mQ8Q8vQTNxeKAe-rUwgJD0bm5hvcIQ7ic0eYEBpnxSZ6MMlnkrlWMia7093b2v9dE560q6-NlMM-AMRpoxglG8auz-ecXqB7eDPl6tXX52sjaLrE8JzEr4-BcKHssaEr2d9ngH7k9Yrg0zT5lDm0LdWyIgYnVd2v1iVyv2uMIvLRfTXYm4Aq4yp-FQ8BPCXDJJ5u4oBTAB; language=zh-Hans-CN%3Bq%3D1%2C%2520en-CN%3Bq%3D0.9; lat=0.000000; lon=0.000000; mod=iPhone12%2C1; net=MOBILE_3G; sys=iOS_13.2.3; token=Cg9rdWFpc2hvdS5hcGkuc3QSsAEwGS5_pOQ2Th9aarDe8BuQKcrg-piRyNXMi-7Fq7abPTB4zgdcLH3wuRWIq-yFfM_pVltPsE5_Kvk64piTIuB2vz3H7jwKRZz13qymkliDbygdTqUm7qy8jaujjwlHppuz7VlFYZXE_Hyp8yYY8s2xNaYQlvpfo9zoxmfOi6FD6sYD5oI278hbeMlmSoefhc57W9Q_WWRk-TkXiQClmxvyHbVdrPKbOdd408_-KRrV2xoS2XvDR99SRDOqaScwEugPIgVVIiBoor-Tx5QeFo9g4xIErKZo5GjThcDlP29Vm_-xbxGjsigFMAE; userId=177918692; ver=3.2; apptype=2; browseType=3; country_code=cn; cs=false; darkMode=false; foreign=0; global_id=DFP3E162EC9476EC9D6002F0BF0B6C326CAD045A24B89D38DC12C6D1EA7A135D; isp=CTCC; os=13.2.3; sh=1792; sid=AE6A3CFE-99B0-4E1B-A104-A6F9DAAE5474; sw=828; ud=177918692";
+/*
+更新时间: 2020-12-20 15:30
 
-!(async () => {
-  await sign();
-  await signifo();
-  await info();
-})()
-  .catch((e) => $.logErr(e))
-  .finally(() => $.done());
-console.log(
-  `============ 脚本执行：${new Date().toLocaleString()}  =============\n`
-);
+本脚本仅适用于快手双版本签到，注意正式版Cookie签到有时效性，但Cookie仍然可用于签到极速版，即正式版会掉签；极速版Cookie只能用于极速版
+正式版APP获取Cookie方法:
+  1.将下方[rewrite_local]地址复制的相应的区域下,无需填写hostname;
+  2.打开APP稍等几秒，即可获取Cookie.
+极速版获取方法，
+  1.把URL的正则改为 https:\/\/nebula\.kuaishou\.com\/nebula\/task\/earning\?，添加hostname = nebula.kuaishou.com;
+  2.点击设置页面的"积分兑好礼"即可
 
-function sign() {
+兼容Nodejs,把获取的Cookie填入KS_TOKEN，多账号用"&"分开
+
+非专业人士制作，欢迎各位大佬提出宝贵意见和指导
+by Sunert
+特别感谢
+@Chavy
+@Nobyda
+~~~~~~~~~~~~~~~~
+
+Surge 4.0 :
+[Script]
+快手 = type=cron,cronexp=35 5 0 * * *,script-path=https://raw.githubusercontent.com/Sunert/Scripts/master/Task/kuaishou.js,script-update-interval=0
+
+快手 = type=http-request,pattern=http:\/\/uploads2\.gifshow\.com\/rest\/n\/system\/speed,script-path=https://raw.githubusercontent.com/Sunert/Scripts/master/Task/kuaishou.js
+
+~~~~~~~~~~~~~~~~
+Loon 2.1.0+
+[Script]
+# 本地脚本
+cron "04 00 * * *" script-path=https://raw.githubusercontent.com/Sunert/Scripts/master/Task/kuaishou.js, enabled=true, tag=快手
+
+http-request http:\/\/uploads2\.gifshow\.com\/rest\/n\/system\/speed script-path=https://raw.githubusercontent.com/Sunert/Scripts/master/Task/kuaishou.js
+
+-----------------
+
+QX 1.0.7+ :
+[task_local]
+0 9 * * * kuaishou.js
+
+[rewrite_local]
+
+http:\/\/uploads2\.gifshow\.com\/rest\/n\/system\/speed url script-request-header https://raw.githubusercontent.com/Sunert/Scripts/master/Task/kuaishou.js
+
+~~~~~~~~~~~~~~~~
+
+
+*/
+const logs = false; //日志开关
+require("../utils/env");
+
+const $ = new Env("快手视频");
+let cookieArr = [];
+if ($.isNode()) {
+  if (process.env.KS_TOKEN && process.env.KS_TOKEN.indexOf("&") > -1) {
+    ks_tokens = process.env.KS_TOKEN.split("&");
+  } else {
+    ks_tokens = process.env.KS_TOKEN.split();
+  }
+  Object.keys(ks_tokens).forEach((item) => {
+    if (ks_tokens[item]) {
+      cookieArr.push(ks_tokens[item]);
+    }
+  });
+} else {
+  cookieArr.push($.getdata("cookie_ks"));
+}
+
+let isGetCookie = typeof $request !== "undefined";
+if (isGetCookie) {
+  GetCookie();
+  $.done();
+} else {
+  !(async () => {
+    if (!cookieArr[0]) {
+      $.msg($.name, "【提示】🉐登录快手pp获取cookie", "", {
+        "open-url":
+          "https://live.kuaishou.com/fission/offkwai/index?cc=share_copylink&kpf=IPHONE&traceId=27&fid=1570609569&code=3429390431&shareMethod=token&kpn=KUAISHOU&subBiz=INVITE_CODE&shareId=1000517297081&shareToken=X-1oTjAy1OkMhgQk_AO&platform=copylink&shareMode=app&shareObjectId=3429390431",
+      });
+      return;
+    }
+    if ($.isNode()) {
+      console.log(
+        `============ 脚本执行-国际标准时间(UTC)：${new Date().toLocaleString()}  =============\n`
+      );
+      console.log(
+        `============ 脚本执行-北京时间(UTC+8)：${new Date(
+          new Date().getTime() + 8 * 60 * 60 * 1000
+        ).toLocaleString()}=============\n`
+      );
+    }
+    for (let i = 0; i < cookieArr.length; i++) {
+      if (cookieArr[i]) {
+        cookieVal = cookieArr[i];
+        $.index = i + 1;
+        console.log(
+          `-------------------------\n\n开始【快手视频账号${$.index}】`
+        );
+        await speedSign();
+        await speedSignifo();
+        await speedInfo();
+        await officialSign();
+        if (offici_code !== 100119) {
+          await officialSignifo();
+          await officialtaskCenter();
+        }
+        await showmsg();
+      }
+    }
+  })()
+    .catch((e) => $.logErr(e))
+    .finally(() => $.done());
+}
+function officialSign() {
+  return new Promise((resolve, reject) => {
+    let signurl = {
+      url: "https://activity.m.kuaishou.com/rest/wd/taskCenter/task/signIn",
+      headers: {
+        Cookie: cookieVal,
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: '{"bizId": 29}',
+    };
+    $.post(signurl, (error, response, data) => {
+      if (logs) $.log(`${$.name}, data: ${data}`);
+      let officialSign_res = JSON.parse(data);
+      offici_code = officialSign_res.result;
+      if (offici_code == 100111) {
+        offic_sign = `签到结果: ${officialSign_res.error_msg}`;
+        // $.msg($.name,offic_sign,"")
+        logs ? $.log(`错误信息: ${officialSign_res.error_msg}`) : "";
+        resolve();
+        return;
+      } else if (offici_code == 100136) {
+        offic_sign = `签到结果: ${officialSign_res.error_msg}`;
+        if (logs) console.log("" + officialSign_res.error_msg);
+      } else if (offici_code == 1) {
+        offic_sign = `签到结果: ✅ +${officialSign_res.reward.rewardCount} 积分`;
+      }
+      resolve();
+    });
+  });
+}
+
+function officialSignifo() {
+  return new Promise((resolve, reject) => {
+    infourl = {
+      url:
+        "https://zt.gifshow.com/rest/zt/encourage/account/summary/withKscoinTrial?kpn=KUAISHOU&subBiz=lowActiveUserTaskEncourage",
+      headers: {
+        Cookie: cookieVal,
+        "Content-Type": "application/json;charset=utf-8",
+      },
+    };
+    $.get(infourl, async (error, response, data) => {
+      if (logs) $.log(`${$.name}, data: ${data}`);
+      let _info = JSON.parse(data);
+      if (_info.result == 1) {
+        offic_info = `收益: ${_info.data.accounts[0].displayBalance}积分  现金: ${_info.data.accounts[1].displayBalance}元\n`;
+      }
+      resolve();
+    });
+  });
+}
+function officialtaskCenter() {
+  return new Promise((resolve, reject) => {
+    let reurl = {
+      url:
+        "https://activity.m.kuaishou.com/rest/wd/taskCenter/task/appStartup/reward",
+      headers: {
+        Cookie: cookieVal,
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: '{"bizId": 29}',
+    };
+    $.post(reurl, (error, response, data) => {
+      if (logs) $.log(`${$.name}, data: ${data}`);
+      let result = JSON.parse(data);
+      if (result.rewardSuccess == true) {
+        var rewards = result.reward.accounts;
+        if (typeof result.reward.surpriseRewardCount !== undefined) {
+          rewards += result.reward.surpriseRewardCount;
+        }
+        offic_reward = `获得收益: 💵${rewards}积分\n`;
+      }
+      resolve();
+    });
+  });
+}
+
+function speedSign() {
   return new Promise((resolve, reject) => {
     let signurl = {
       url: "https://nebula.kuaishou.com/rest/n/nebula/sign/sign",
@@ -23,54 +196,109 @@ function sign() {
     };
     $.get(signurl, (error, response, data) => {
       if (logs) $.log(`${$.name}, data: ${data}`);
-      let result = JSON.parse(data);
-      if (result.result == 10007) {
-        subTitle = `签到结果: ${result.error_msg}`;
-        $.msg($.name, subTitle, "");
-      }
-      if (logs)
-        $.log(`错误代码: ${result.result}, 返回信息: ${result.error_msg}`);
-    });
-    resolve();
-  });
-}
-function signifo() {
-  return new Promise((resolve, reject) => {
-    earnurl = {
-      url: "https://nebula.kuaishou.com/rest/n/nebula/sign/query",
-      headers: { Cookie: cookieVal },
-    };
-    $.get(earnurl, (error, response, data) => {
-      if (logs) $.log(`${$.name}, data: ${data}`);
-      let result = JSON.parse(data);
-      if (result.data.nebulaSignInPopup.button == "立即签到") {
-        detail = `签到成功: ${result.data.nebulaSignInPopup.subTitle}, ${result.data.nebulaSignInPopup.title}`;
-      } else if (result.data.nebulaSignInPopup.button == "好的") {
-        detail = `重复签到: ${result.data.nebulaSignInPopup.subTitle}, ${result.data.nebulaSignInPopup.title}`;
+      let speed_res = JSON.parse(data);
+      speed_code = speed_res.result;
+      if (speed_code == 10007) {
+        speed_sign = `签到结果: ${speed_res.error_msg}`;
+        $.msg($.name, speed_sign, "");
+        if (logs) $.log(`错误信息: ${speed_res.error_msg}`);
+        $.done();
+      } else if (speed_code == 10901) {
+        speed_sign = `签到结果: ${speed_res.error_msg}`;
+      } else if (speed_code == 1) {
+        speed_sign = `签到结果: ${speed_res.data.toast}`;
       }
       resolve();
     });
   });
 }
-function info() {
+function speedSignifo() {
+  return new Promise((resolve, reject) => {
+    earnurl = {
+      url: "https://nebula.kuaishou.com/rest/n/nebula/sign/query",
+      headers: {
+        Cookie: cookieVal,
+        "Content-Type": "application/json;charset=utf-8",
+      },
+    };
+    $.get(earnurl, (error, response, data) => {
+      if (logs) $.log(`${$.name}, data: ${data}`);
+      let result = JSON.parse(data);
+      if (result.result == "1") {
+        speed_info = `${result.data.nebulaSignInPopup.subTitle}, ${result.data.nebulaSignInPopup.title}\n`;
+      }
+      resolve();
+    });
+  });
+}
+function speedInfo() {
   return new Promise((resolve, reject) => {
     let reurl = {
       url: "https://nebula.kuaishou.com/rest/n/nebula/activity/earn/overview",
-      headers: { Cookie: cookieVal },
+      headers: {
+        Cookie: cookieVal,
+        "Content-Type": "application/json;charset=utf-8",
+      },
     };
-    $.get(reurl, (error, response, data) => {
+    $.get(reurl, async (error, response, data) => {
       if (logs) $.log(`${$.name}, data: ${data}`);
       let result = JSON.parse(data);
       if (result.result == 1) {
-        subTitle = `现金收益: 💵${result.data.allCash}元    金币收益: 💰${result.data.totalCoin}`;
+        speed_rewards = `现金收益: 💵${result.data.allCash}元    金币收益: 💰${result.data.totalCoin}`;
+        await bdinvet();
       }
-      $.msg($.name, subTitle, detail);
-      notify.sendNotify($.name, subTitle);
       resolve();
     });
   });
 }
 
+function showmsg() {
+  ($.sub = ""), ($.desc = "");
+  if (offici_code == 1 || offici_code == 100136) {
+    $.desc += `【正式版】:\n  ` + offic_info + "  " + offic_sign + "\n";
+  }
+
+  if (speed_code == 1 || speed_code == 10901) {
+    $.desc +=
+      `【极速版】:\n  ` +
+      speed_rewards +
+      "\n  " +
+      speed_info +
+      "  " +
+      speed_sign;
+    notify.sendNotify($.name, $.desc);
+  }
+  $.msg($.name, $.sub, $.desc);
+}
+
+function GetCookie() {
+  var UA = $request.headers["User-Agent"];
+  if ($request && $request.method != `OPTIONS` && UA.indexOf("ksNebula") > -1) {
+    const cookieVal = $request.headers["Cookie"];
+    if (cookieVal) $.setdata(cookieVal, "cookie_ks");
+    $.log(`${$.name} 获取Cookie: 成功,cookieVal: ${cookieVal}`);
+    $.msg($.name, `获取极速Cookie: 成功🎉`, ``);
+  } else if (
+    $request &&
+    $request.method != `OPTIONS` &&
+    UA.indexOf("ksNebula") == -1
+  ) {
+    const cookie = $request.headers["Cookie"];
+    cookieVal = cookie.match(/token=[a-z0-9-]+/)[0];
+    if (cookieVal) $.setdata(cookieVal, "cookie_ks");
+    $.log(`${$.name} 获取Cookie: 成功,cookieVal: ${cookieVal}`);
+    $.msg($.name, `获取正式Cookie: 成功🎉`, ``);
+  }
+}
+function bdinvet() {
+  let bdurl = {
+    url: `https://nbic3g9vs.get666bjxi3t687tp8c.com/nebula/ares/preBindCode?cc=share_copylink&fid=953324934&shareMode=app&code=774010415&shareMethod=card&kpn=NEBULA&subBiz=INVITE_CODE&shareToken=YVthN8M1_AO&shareObjectId=774010415`,
+    headers: { Cookie: cookieVal },
+  };
+  $.get(bdurl, (error, resp, data) => {
+    //$.log(data)
+  });
+}
 function Env(t, e) {
   class s {
     constructor(t) {

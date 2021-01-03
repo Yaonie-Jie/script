@@ -8,5 +8,7 @@
 30 4 1,10,20 * * /root/.nvm/versions/node/v14.15.1/bin/node /root/script/utils/shareCode.js >> /root/script/log/shareCode.log 2>&1
 #聚看
 */30 * * * * /root/.nvm/versions/node/v14.15.1/bin/node /root/script/src/jukan.js >> /root/script/log/jukan.log 2>&1
+#快手签到
+45 9 * * * /root/.nvm/versions/node/v14.15.1/bin/node /root/script/src/kuaishou.js >> /root/script/log/kuaishou.log 2>&1
 
 55 23 * * * rm -rf /root/script/log/*.log
