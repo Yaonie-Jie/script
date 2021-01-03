@@ -27,9 +27,9 @@ cron "0,30 * * * *" script-path=https://raw.githubusercontent.com/shylocks/Loon/
 [MITM]
 hostname = www.xiaodouzhuan.cn
 */
-const API_HOST = "https://www.xiaodouzhuan.cn";
 const notify = require("../utils/sendNotify");
 
+const API_HOST = "https://www.xiaodouzhuan.cn";
 let UA =
   "Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148";
 const DATE = `${new Date().getUTCFullYear()}${(new Date().getUTCMonth() + 1)
@@ -148,9 +148,10 @@ if (typeof $request !== "undefined") {
         } else $.uuid = "";
         await getOpenId();
         $.index = i + 1;
+        $.message = "";
         if (!$.openId) {
           console.log(`Cookies${$.index}已失效！`);
-          notify.sendNotify('聚看点', `Cookies${$.index}已失效！`);
+          notify.sendNotify("聚看点", `Cookies${$.index}已失效！`);
 
           break;
         }
@@ -162,8 +163,10 @@ if (typeof $request !== "undefined") {
               videotime: 0,
             };
             $.log("当日liveBody不存在，新建");
+            $.isSign = false;
           } else {
             $.log("当日liveBody已存在");
+            $.isSign = true;
           }
         } else {
           liveBody[$.openId] = {};
@@ -173,6 +176,7 @@ if (typeof $request !== "undefined") {
             videotime: 0,
           };
           $.log("当日liveBody不存在，新建");
+          $.isSign = false;
         }
         await getUserInfo();
         console.log(
@@ -181,6 +185,7 @@ if (typeof $request !== "undefined") {
           }*********\n`
         );
         console.log(`${$.gold}，当前 ${$.current} 元，累计 ${$.sum} 元`);
+        $.message += `${$.gold}，当前 ${$.current} 元，累计 ${$.sum} 元\n`;
         $.iOS = true;
         if (cookie.indexOf("iOS") > 0) {
           console.log(`${$.userName}的cookie来自iOS客户端`);
@@ -188,7 +193,7 @@ if (typeof $request !== "undefined") {
             "Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148";
         } else if (cookie.indexOf("android") > 0) {
           console.log(`${$.userName}的cookie来自安卓客户端`);
-          $.iOS = false;
+          // $.iOS = false
           UA =
             "Dalvik/2.1.0 (Linux; U; Android 10; ONEPLUS A5010 Build/QKQ1.191014.012)";
           // cookie = cookie.replace('!android!753', '!iOS!5.6.5')
@@ -196,6 +201,7 @@ if (typeof $request !== "undefined") {
           console.log(`无法获取客户端标示，请检查cookie是否正确`);
         }
         await jkd();
+        await showMsg();
       }
     }
   })()
@@ -217,9 +223,16 @@ if (typeof $request !== "undefined") {
 
 function requireConfig() {
   if (!$.isNode()) {
-    liveBody = $.getdata("jkdLiveBody")
-      ? JSON.parse($.getdata("jkdLiveBody"))
-      : {};
+    if ($.getdata("jkdLiveBody") != null) {
+      console.log("加载本地阅读时长body");
+      liveBody = JSON.parse($.getdata("jkdLiveBody"));
+      if (liveBody === null) {
+        liveBody = {};
+      }
+    } else {
+      console.log("没有阅读时长body，新建");
+      liveBody = {};
+    }
   } else {
     const fs = require("fs");
     try {
@@ -227,8 +240,9 @@ function requireConfig() {
         $.log("未找到活跃时间body，新建");
         liveBody = {};
       } else {
+        $.log("读取本地活跃时间body");
         let raw = fs.readFileSync("jkd.json").toString();
-        liveBody = JSON.parse(raw);
+        liveBody = JSON.parse(raw) ? JSON.parse(raw) : {};
       }
     } catch (err) {
       liveBody = {};
@@ -237,8 +251,17 @@ function requireConfig() {
   }
 }
 
+function showMsg() {
+  if (!$.isNode()) {
+    $.msg(`【账号${$.name}${$.index} ${$.userName}】`, $.message);
+  } else {
+    $.log(`【账号${$.name}${$.index} ${$.userName}】\n ${$.message}`);
+  }
+}
+
 async function jkd() {
   let st = new Date().getTime();
+  await call3($.uuid, "OPEN_APP");
   if (sum !== 0 && $.current > sum) {
     console.log(`触发提现条件，去提现`);
     await withDraw();
@@ -281,10 +304,10 @@ async function jkd() {
         $.log(`观看视屏次数已满，跳出`);
         break;
       }
-      // await call1(artId)
+      await call1($.uuid, artId);
       await getVideo(artId, true);
-      // await video(artId)
-      // await call1(uuid)
+      await video(artId);
+      await call1($.uuid);
       await $.wait(31 * 1000);
       await videoAccount(artId);
       await $.wait(5 * 1000);
@@ -331,8 +354,10 @@ async function jkd() {
     addarticletime: (addArticleTime * 1000).toString(),
     addvideotime: (addVideoTime * 1000).toString(),
   };
+  $.message += `本次运行增加活跃时间 ${addLiveTime} 秒\n`;
   await userLive(body);
   $.log(`本次运行完成，共计获得 ${$.profit} 金币`);
+  $.message += `本次运行获得 ${$.profit} 金币\n`;
 }
 
 function userLive(body) {
@@ -583,7 +608,7 @@ function getOpenId() {
             if ($.openId) {
               $.log(`获取openId成功`);
             }
-            $.isSign = data.match(/var issign = parseInt\("(.*)"\)/)[1];
+            // $.isSign = data.match(/var issign = parseInt\("(.*)"\)/)[1]
             $.videoPacketNum = data.match(/var videoPacketNum = (\S*);/)[1];
             $.newsTaskNum = data.match(/var newsTaskNum = (\S*);/)[1];
             $.luckyDrawNum = data.match(/var luckDrawTaskNum = (\S*);/)[1];
@@ -661,8 +686,9 @@ function sign() {
             if (data["ret"] === "ok") {
               $.profit += data.datas.signAmt;
               $.log(
-                `签到成功，获得 ${data.datas.signAmt} 金币，已签到 ${data.datas.signDays}天，下次签到金币：${data.datas.nextSignAmt}`
+                `签到成功，获得 ${data.datas.signAmt} 金币，已签到 ${data.datas.signDays} 天，下次签到金币：${data.datas.nextSignAmt}`
               );
+              $.message += `签到成功，获得 ${data.datas.signAmt} 金币，已签到 ${data.datas.signDays} 天，下次签到金币：${data.datas.nextSignAmt}\n`;
               $.log(`去做签到分享任务`);
               await signShare(data.datas.position);
             } else {
@@ -914,7 +940,6 @@ function openTimeBox() {
     appid: "xzwl",
     appversion: $.version.toString().split("").join("."),
   };
-  console.log(body);
   return new Promise((resolve) => {
     $.post(
       taskPostUrl(
@@ -1074,7 +1099,7 @@ function getStageReward(stage) {
   });
 }
 
-function call2(uuid) {
+function call2(uuid, opttype = "ART_READ") {
   let body = {
     openID: $.openId,
     openid: $.openId,
@@ -1097,7 +1122,9 @@ function call2(uuid) {
     $.post(
       taskPostUrl(
         "jkd/minfo/call.action",
-        `jdata=${escape(JSON.stringify(body))}&opttype=ART_READ`
+        `jdata=${escape(
+          JSON.stringify(body)
+        )}&opttype=${opttype}&optversion=1.0`
       ),
       async (err, resp, data) => {
         try {
@@ -1108,11 +1135,17 @@ function call2(uuid) {
             if (safeGet(data)) {
               data = JSON.parse(data);
               if (data["ret"] === "ok") {
-                $.artcount = data.datas.artcount;
-                $.videocount = data.datas.videocount;
-                $.log(
-                  `文章剩余观看次数：${$.artcount}，视频剩余观看次数：${$.videocount}`
-                );
+                if (opttype === "ART_READ") {
+                  $.artcount = data.datas.artcount;
+                  $.videocount = data.datas.videocount;
+                  $.log(
+                    `文章剩余观看次数：${$.artcount}，视频剩余观看次数：${$.videocount}`
+                  );
+                } else {
+                  console.log(`动作${opttype}记录成功！`);
+                }
+              } else {
+                console.log(data);
               }
             }
           }
@@ -1125,8 +1158,7 @@ function call2(uuid) {
     );
   });
 }
-
-function call1(uuid, article_id) {
+function call3(uuid, opttype = "ART_READ") {
   let body = {
     openID: $.openId,
     openid: $.openId,
@@ -1143,14 +1175,73 @@ function call1(uuid, article_id) {
       os: $.iOS ? "iOS" : "android",
       channel: $.iOS ? "iOS" : "android",
       openid: $.openId,
-      article_id: article_id,
     },
   };
   return new Promise((resolve) => {
     $.post(
       taskPostUrl(
+        "jkd/minfo/call2.action",
+        `jdata=${escape(
+          JSON.stringify(body)
+        )}&opttype=${opttype}&optversion=1.0`
+      ),
+      async (err, resp, data) => {
+        try {
+          if (err) {
+            $.log(`${JSON.stringify(err)}`);
+            $.log(`${$.name} API请求失败，请检查网路重试`);
+          } else {
+            if (safeGet(data)) {
+              data = JSON.parse(data);
+              if (data["ret"] === "ok") {
+                if (opttype === "ART_READ") {
+                  $.artcount = data.datas.artcount;
+                  $.videocount = data.datas.videocount;
+                  $.log(
+                    `文章剩余观看次数：${$.artcount}，视频剩余观看次数：${$.videocount}`
+                  );
+                } else {
+                  console.log(`动作${opttype}记录成功！`);
+                }
+              } else {
+                console.log(data);
+              }
+            }
+          }
+        } catch (e) {
+          $.logErr(e, resp);
+        } finally {
+          resolve(data);
+        }
+      }
+    );
+  });
+}
+function call1(uuid, article_id, opttype = "INF_ART_COMMENTS") {
+  let body = {
+    openID: $.openId,
+    openid: $.openId,
+    app_id: "xzwl",
+    version_token: `${$.version}`,
+    channel: $.iOS ? "iOS" : "android",
+    vercode: `${$.version}`,
+    psign: "92dea068b6c271161be05ed358b59932",
+    app_token: "xzwltoken070704",
+    version: $.version.toString().split("").join("."),
+    pars: {
+      openID: $.openId,
+      uniqueid: uuid,
+      os: $.iOS ? "iOS" : "android",
+      channel: $.iOS ? "iOS" : "android",
+      openid: $.openId,
+    },
+  };
+  if (article_id) body["pars"]["article_id"] = article_id;
+  return new Promise((resolve) => {
+    $.post(
+      taskPostUrl(
         "jkd/minfo/call.action",
-        `jdata=${escape(JSON.stringify(body))}&opttype=INF_ART_COMMENTS`
+        `jdata=${escape(JSON.stringify(body))}&opttype=${opttype}`
       ),
       async (err, resp, data) => {
         try {
