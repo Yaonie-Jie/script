@@ -116,7 +116,8 @@ def dingding_bot(title, content):
     headers = {'Content-Type': 'application/json;charset=utf-8'}
     data = {
         'msgtype': 'text',
-        'text': {'content': f'{title}\n\n{content}'}
+        'text': {'content': f'{title}\n\n{content}'},
+        'at': { 'atMobiles': ["17681858411"], 'isAtAll': 'false' },
     }
     response = requests.post(url=url, data=json.dumps(data), headers=headers, timeout=15).json()
     if not response['errcode']:
