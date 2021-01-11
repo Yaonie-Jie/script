@@ -9,6 +9,7 @@ const shareCodes = [
     ddgc: "P04z54XCjVWnYaS5jwBC2T423hMkgs0",
     jxgc: "fhEyWnDSm2PmfOajBltZWg==",
     jdzz: "AAjxVm62WyTMPZz0",
+    dushu:'d5821ccb0f4f45138273bb9a1cd57392'
   },
   //我的小号
   {
@@ -18,6 +19,7 @@ const shareCodes = [
     ddgc: "P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA",
     jxgc: "07HXmMgtDo7VQFSb8oxXxA==",
     jdzz: "AUWE559fWjXJKfCGEqD0w",
+    dushu:'69437be0d127472e8d6763595d283316'
   },
   //小费
   {
@@ -27,6 +29,7 @@ const shareCodes = [
     ddgc: "P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg",
     jxgc: "vmlNjZVbTsZ2lzeFh3tHYA==",
     jdzz: "AUWE5mKnEzGcICGb91XpJkQ",
+    dushu:'6f7d8a3b889e4d99a05d8fd18497d0bb'
   },
   //   胖
   {
