@@ -7,7 +7,7 @@ services:
     tty: true
     volumes:
       - ./my_crontab_list.sh:/scripts/docker/my_crontab_list.sh
-      - ./src:/scripts/xiaoyu
+      - ./src:/scripts
       - ./logs1:/scripts/logs
     environment:
       - JD_COOKIE=pt_key=AAJf3uzMADBdFUQvawUc1pQvW1BCL_IpsE2QG3txhWMJclZAvnSh78w9W3Oy4eC669WKcpz8-is;pt_pin=993406467_m&pt_key=AAJf7Ft1ADAPIEaNgZdzvPfuVcv651-MvRFB02HFyg7cXhGERA51QQBWhbi7iRQZ4VFAUqddudI;pt_pin=jd_74d1b00658634&pt_key=AAJf1ttIADAcviRt_K2S6QXO7a3E0ANgjfojAvY_sUJOMgebhxX1ZqVv5U_SWRIk7kJXrpiA628;pt_pin=jd_HJvpwrDqLEqJ;
