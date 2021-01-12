@@ -9,7 +9,8 @@ const shareCodes = [
     ddgc: "P04z54XCjVWnYaS5jwBC2T423hMkgs0",
     jxgc: "fhEyWnDSm2PmfOajBltZWg==",
     jdzz: "AAjxVm62WyTMPZz0",
-    dushu:'d5821ccb0f4f45138273bb9a1cd57392'
+    dushu: "d5821ccb0f4f45138273bb9a1cd57392", //口袋读书
+    jxnc: "2321b70af9f8eda7ad44715a73d37105", //惊喜农场
   },
   //我的小号
   {
@@ -19,7 +20,8 @@ const shareCodes = [
     ddgc: "P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA",
     jxgc: "07HXmMgtDo7VQFSb8oxXxA==",
     jdzz: "AUWE559fWjXJKfCGEqD0w",
-    dushu:'69437be0d127472e8d6763595d283316'
+    dushu: "69437be0d127472e8d6763595d283316",
+    jxnc: "780da922dbc0bd092832bf9120200ec6",
   },
   //小费
   {
@@ -29,7 +31,8 @@ const shareCodes = [
     ddgc: "P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg",
     jxgc: "vmlNjZVbTsZ2lzeFh3tHYA==",
     jdzz: "AUWE5mKnEzGcICGb91XpJkQ",
-    dushu:'6f7d8a3b889e4d99a05d8fd18497d0bb'
+    dushu: "6f7d8a3b889e4d99a05d8fd18497d0bb",
+    jxnc: "1b66d816285a9a9fe501e4070d43667a",
   },
   //   胖
   {
@@ -48,6 +51,8 @@ const shareCodes = [
     ddgc: "P04z54XCjVWnYaS5m9cZ2T51XsblwYlhjsxmKc",
     jxgc: "C-1-4msNcWJ7Gq4GO4Xq2w==",
     jdzz: "AUWE52NPurXFrTDGciRsi",
+    jxnc: "b026cfb0c4d36ffb347a3419c616a469",
+    dushu: "ba479feb9ed8416fb55aab76a82dd045",
   },
   //   王硕
   {
@@ -57,6 +62,7 @@ const shareCodes = [
     ddgc: "P04z54XCjVWnYaS5m9cZ2T51XsblwYlhjsxmKc",
     jxgc: "mMgaT8eM2vngwPhSUPlm4w==",
     jdzz: "AUWE5m6yYymQKWmb4jnpLnA",
+    jxnc: "82b3b103a377bb8246d2c7daf1e93d4f",
   },
   //姐姐
   {
@@ -66,6 +72,7 @@ const shareCodes = [
     ddgc: "P04z54XCjVWnYaS5kldVT-mrg9LlcqZ",
     jxgc: "SHhVoR8WaIJEbFbS-rCz2w==",
     jdzz: "Ad2ALwPPjvjQICWg",
+    jxnc: "",
   },
   //姐夫
   {
