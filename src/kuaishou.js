@@ -48,6 +48,7 @@ http:\/\/uploads2\.gifshow\.com\/rest\/n\/system\/speed url script-request-heade
 */
 const logs = false; //日志开关
 require("../utils/env");
+const notify = require("../utils/sendNotify");
 
 const $ = new Env("快手视频");
 let cookieArr = [];
