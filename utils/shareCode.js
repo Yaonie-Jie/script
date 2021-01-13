@@ -6,7 +6,6 @@ const shareCodes = [
     zd: "b6xxkujlkjykfriicy7emnyhbm",
     nc: "13cd7d9990544ca29195aee9d2574395",
     mc: "MTE1NDAxNzcwMDAwMDAwMzUyOTU3ODk=",
-    ddgc: "P04z54XCjVWnYaS5jwBC2T423hMkgs0",
     jxgc: "fhEyWnDSm2PmfOajBltZWg==",
     jdzz: "AAjxVm62WyTMPZz0",
     dushu: "d5821ccb0f4f45138273bb9a1cd57392", //口袋读书
@@ -17,7 +16,6 @@ const shareCodes = [
     zd: "x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a",
     nc: "e436bdfeaa454902ad20fddd1ce096b5",
     mc: "MTE1NDUyMjEwMDAwMDAwNDI0MjEyMzc=",
-    ddgc: "P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA",
     jxgc: "07HXmMgtDo7VQFSb8oxXxA==",
     jdzz: "AUWE559fWjXJKfCGEqD0w",
     dushu: "69437be0d127472e8d6763595d283316",
@@ -28,7 +26,6 @@ const shareCodes = [
     zd: "4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy",
     nc: "3c7658fedf724c929c9d924c433f70ae",
     mc: "MTE1NDQ5OTUwMDAwMDAwMzUxNzg5MTk=",
-    ddgc: "P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg",
     jxgc: "vmlNjZVbTsZ2lzeFh3tHYA==",
     jdzz: "AUWE5mKnEzGcICGb91XpJkQ",
     dushu: "6f7d8a3b889e4d99a05d8fd18497d0bb",
@@ -39,7 +36,6 @@ const shareCodes = [
     zd: "e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea",
     nc: "76d3727f1c154d1baff411fbdf43fc94",
     mc: "MTE1NDQ5OTUwMDAwMDAwMzkwMzM5NzE=",
-    ddgc: "P04z54XCjVWnYaS5m9cZ2StjHUZkkmwtnsRdio",
     jxgc: "VUFcFE8mE-y7N_33EOWn3Q==",
     jdzz: "AUWE5m_jBxGYPD2Oq1HhIxw",
   },
@@ -48,7 +44,6 @@ const shareCodes = [
     zd: "4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy",
     nc: "8bf03a4fe64f4a32823e473a06d06fb8",
     mc: "MTE1NDUwMTI0MDAwMDAwMDQxODY4NDc1",
-    ddgc: "P04z54XCjVWnYaS5m9cZ2T51XsblwYlhjsxmKc",
     jxgc: "C-1-4msNcWJ7Gq4GO4Xq2w==",
     jdzz: "AUWE52NPurXFrTDGciRsi",
     jxnc: "b026cfb0c4d36ffb347a3419c616a469",
@@ -59,7 +54,6 @@ const shareCodes = [
     zd: "e7lhibzb3zek2sukqc23c4te54w2z2ylg7p7loq",
     nc: "78d81e320aad4add99ef2992b7c76bd8",
     mc: "MTEzMzI0OTE0NTAwMDAwMDA0MDk2NjkyNw==",
-    ddgc: "P04z54XCjVWnYaS5m9cZ2T51XsblwYlhjsxmKc",
     jxgc: "mMgaT8eM2vngwPhSUPlm4w==",
     jdzz: "AUWE5m6yYymQKWmb4jnpLnA",
     jxnc: "82b3b103a377bb8246d2c7daf1e93d4f",
@@ -69,7 +63,6 @@ const shareCodes = [
     zd: "cad57d4yz2jasvwxc6harnsloe",
     nc: "8eb2ec97fe9d47f9a5a94ba7e32b2163",
     mc: "MTE1NDUwMTI0MDAwMDAwMDQyMTkxNDQx",
-    ddgc: "P04z54XCjVWnYaS5kldVT-mrg9LlcqZ",
     jxgc: "SHhVoR8WaIJEbFbS-rCz2w==",
     jdzz: "Ad2ALwPPjvjQICWg",
     jxnc: "",
@@ -79,7 +72,6 @@ const shareCodes = [
     zd: "vufhlr35oqqmb7yenkor4dtyscjaidt5yjx4ota",
     nc: "34cad0b44ec74548afd61f75dde3fc79",
     mc: "MTEzMzI0OTE0NTAwMDAwMDA0MjE5NjQ1NQ==",
-    ddgc: "P04z54XCjVWnYaS5mhRVjf5331KlkgNJ2I",
     jxgc: "jER5O2NJDZjht6QtbM1bGA==",
     jdzz: "AVmwIyKySzDULAGb_3g",
   },
@@ -90,7 +82,7 @@ $.random = 5;
 !(async () => {
   console.log(`\n此脚本延迟${$.random}秒执行\n`);
   for (let i = 0; i < shareCodes.length; i++) {
-    const { zd, nc, mc, ddgc, jxgc, jdzz } = shareCodes[i];
+    const { zd, nc, mc, jxgc, jdzz } = shareCodes[i];
     await $.wait($.random);
     zd &&
       (await create(
@@ -108,12 +100,6 @@ $.random = 5;
       (await create(
         `http://api.turinglabs.net/api/v1/jd/pet/create/${mc}/`,
         "东东萌宠"
-      ));
-    await $.wait($.random);
-    ddgc &&
-      (await create(
-        `http://api.turinglabs.net/api/v1/jd/ddfactory/create/${ddgc}/`,
-        "东东工厂"
       ));
     await $.wait($.random);
     jxgc &&
