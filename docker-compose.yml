@@ -1,7 +1,7 @@
 version: "3"
 services:
   jd_scripts1: #我的&小费&小号
-    image: akyakya/jd_scripts
+    image: zhangyujie666/jds
     restart: always
     container_name: jd_scripts1
     tty: true
@@ -30,6 +30,8 @@ services:
       - CUSTOM_LIST_FILE=my_crontab_list.sh
         #疯狂的joy开启循环助力
       - JDJOY_HELPSELF=true
+        #疯狂的JOY购买等级
+      - BUY_JOY_LEVEL=27
         #种豆得豆互助码
       - PLANT_BEAN_SHARECODES=e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea@4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy&e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea@4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy&e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea@4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy
         #京喜工厂互助码
@@ -37,7 +39,7 @@ services:
         #京东书店互助码
       - BOOKSHOP_SHARECODES=ba479feb9ed8416fb55aab76a82dd045
   jd_scripts2: #胖墩&王硕&妈妈&王硕&姐姐&姐夫
-    image: akyakya/jd_scripts
+    image: zhangyujie666/jds
     restart: always
     container_name: jd_scripts2
     tty: true
@@ -63,6 +65,8 @@ services:
       - DREAM_FACTORY_SHARE_CODES=fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==
       - FRUITSHARECODES=13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae@76d3727f1c154d1baff411fbdf43fc94&13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae@76d3727f1c154d1baff411fbdf43fc94&13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae@76d3727f1c154d1baff411fbdf43fc94&13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae@76d3727f1c154d1baff411fbdf43fc94&13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae@76d3727f1c154d1baff411fbdf43fc94&13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae@76d3727f1c154d1baff411fbdf43fc94
       - JDJOY_HELPSELF=true
+        #疯狂的JOY购买等级
+      - BUY_JOY_LEVEL=27
       - JDJOY_SHARECODES=j4qNStBJlcSupeIHW6wjJQ==@I3LfPdCO9Q6lcEYaf7ZBy6t9zd5YaBeE@L0rVrwM-aQLYs6Knuo0wCw==
         #京东书店互助码
       - BOOKSHOP_SHARECODES=d5821ccb0f4f45138273bb9a1cd57392@6f7d8a3b889e4d99a05d8fd18497d0bb@69437be0d127472e8d6763595d283316&d5821ccb0f4f45138273bb9a1cd57392@6f7d8a3b889e4d99a05d8fd18497d0bb@69437be0d127472e8d6763595d283316&d5821ccb0f4f45138273bb9a1cd57392@6f7d8a3b889e4d99a05d8fd18497d0bb@69437be0d127472e8d6763595d283316&d5821ccb0f4f45138273bb9a1cd57392@6f7d8a3b889e4d99a05d8fd18497d0bb@69437be0d127472e8d6763595d283316&d5821ccb0f4f45138273bb9a1cd57392@6f7d8a3b889e4d99a05d8fd18497d0bb@69437be0d127472e8d6763595d283316&d5821ccb0f4f45138273bb9a1cd57392@6f7d8a3b889e4d99a05d8fd18497d0bb@69437be0d127472e8d6763595d283316
