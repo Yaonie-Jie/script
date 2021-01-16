@@ -30,10 +30,7 @@ cron "30 * * * *" script-path=https://raw.githubusercontent.com/shylocks/Loon/ma
 const $ = new Env("工业品爱消除");
 const notify = $.isNode() ? require("../sendNotify") : "";
 const jdCookieNode = $.isNode() ? require("../jdCookie.js") : "";
-let inviteCodes = [
-//   "840266@2583822@2585219@2586018@1556311@2583822@2585256@2586023@2728968",
-//   "840266@2583822@2585219@2586018@1556311@2583822@2585256@2586023@2728968",
-];
+let inviteCodes = ["794067", "794067", "794067", "794067", "794067", "794067"];
 let exchangeName = $.isNode()
   ? process.env.EXCHANGE_GYEC
     ? process.env.EXCHANGE_GYEC
@@ -123,7 +120,7 @@ function obj2param(obj) {
         }
         continue;
       }
-    //   await shareCodesFormat();
+      await shareCodesFormat();
       await jdGy();
       await jdGy(false);
     }
