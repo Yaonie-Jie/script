@@ -31,7 +31,7 @@ services:
         #疯狂的joy开启循环助力
       - JDJOY_HELPSELF=true
         #疯狂的JOY购买等级
-      - BUY_JOY_LEVEL=27
+      - BUY_JOY_LEVEL=28
         #种豆得豆互助码
       - PLANT_BEAN_SHARECODES=e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea@4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy&e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea@4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy&e7lhibzb3zek2y4xvo5qo6ecx76bdxtlicbyxea@4oupleiwuds2a62vpwoiyyglj7iv65a62dz43wy
         #京喜工厂互助码
@@ -44,6 +44,8 @@ services:
     container_name: jd_scripts2
     tty: true
     volumes:
+      - ./my_crontab_list.sh:/scripts/docker/my_crontab_list.sh
+      - ./src:/scripts/xiaoyu
       - ./logs2:/scripts/logs
     environment:
       - JD_COOKIE=pt_key=AAJf6xmUADAGcKknPeebo7PYtsc4EaFwRTudhQwi0J8XA2w21d_rI9hUe4SVmOxGjKJ9MSj3lC4;pt_pin=jd_4ea9c773b942b&pt_key=AAJf5DUnADBPCSmZbre5BqPmHOdKv1jVTXN6tUfAIhULglCVwUKd50jaHguC3aY79m9DdWUS8tk;pt_pin=jd_4187a2b60c619&pt_key=AAJf-7w4ADA9pHw6GvWXfl-nM10YGmAxllZ3OGGhLHKdmhkpv9xZLgqpr4qGGfpNtLSXcdTBHSk;pt_pin=jd_wNNPtStaTdWX&pt_key=AAJf4c6nADDpdRXNSW_JKLozkdrFCoktSwM1yXOGFcDJLnJPuOfyWlbQpy894iuztAt9nqQ3MfM;pt_pin=jd_59cc8f9ce40bd&pt_key=AAJf-V-XADDC_U6pMCyuny5MMlJah9QIm5abHYiTtMbD5IRsbSo00afL8Hu28FvIZSuiq1Lck_c;pt_pin=LemonCC1018&pt_key=AAJf-WuCADDiLYmrwO85PPlZf_iNx1MTToeUFa7ZNDXtn30Rie9ECTfo5jeadzr0tvwuAs20EDI;pt_pin=ming121038673;
@@ -59,14 +61,16 @@ services:
       - FACTORAY_WANTPRODUCT_NAME=投影仪
         #签到结果简洁通知
       - JD_BEAN_SIGN_NOTIFY_SIMPLE=true
+        #挂载自定义cron
       - CUSTOM_LIST_FILE=my_crontab_list.sh
       - PLANT_BEAN_SHARECODES=b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy
       - DDFACTORY_SHARECODES=P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg&P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg
       - DREAM_FACTORY_SHARE_CODES=fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==&fhEyWnDSm2PmfOajBltZWg==@07HXmMgtDo7VQFSb8oxXxA==@vmlNjZVbTsZ2lzeFh3tHYA==
       - FRUITSHARECODES=13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae@76d3727f1c154d1baff411fbdf43fc94&13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae@76d3727f1c154d1baff411fbdf43fc94&13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae@76d3727f1c154d1baff411fbdf43fc94&13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae@76d3727f1c154d1baff411fbdf43fc94&13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae@76d3727f1c154d1baff411fbdf43fc94&13cd7d9990544ca29195aee9d2574395@e436bdfeaa454902ad20fddd1ce096b5@3c7658fedf724c929c9d924c433f70ae@76d3727f1c154d1baff411fbdf43fc94
+        #疯狂的joy开启循环助力
       - JDJOY_HELPSELF=true
         #疯狂的JOY购买等级
-      - BUY_JOY_LEVEL=27
+      - BUY_JOY_LEVEL=28
       - JDJOY_SHARECODES=j4qNStBJlcSupeIHW6wjJQ==@I3LfPdCO9Q6lcEYaf7ZBy6t9zd5YaBeE@L0rVrwM-aQLYs6Knuo0wCw==
         #京东书店互助码
       - BOOKSHOP_SHARECODES=d5821ccb0f4f45138273bb9a1cd57392@6f7d8a3b889e4d99a05d8fd18497d0bb@69437be0d127472e8d6763595d283316&d5821ccb0f4f45138273bb9a1cd57392@6f7d8a3b889e4d99a05d8fd18497d0bb@69437be0d127472e8d6763595d283316&d5821ccb0f4f45138273bb9a1cd57392@6f7d8a3b889e4d99a05d8fd18497d0bb@69437be0d127472e8d6763595d283316&d5821ccb0f4f45138273bb9a1cd57392@6f7d8a3b889e4d99a05d8fd18497d0bb@69437be0d127472e8d6763595d283316&d5821ccb0f4f45138273bb9a1cd57392@6f7d8a3b889e4d99a05d8fd18497d0bb@69437be0d127472e8d6763595d283316&d5821ccb0f4f45138273bb9a1cd57392@6f7d8a3b889e4d99a05d8fd18497d0bb@69437be0d127472e8d6763595d283316
