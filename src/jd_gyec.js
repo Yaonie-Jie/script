@@ -123,7 +123,7 @@ function obj2param(obj) {
         }
         continue;
       }
-      await shareCodesFormat();
+    //   await shareCodesFormat();
       await jdGy();
       await jdGy(false);
     }
