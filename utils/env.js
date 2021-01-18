@@ -1,4 +1,4 @@
-process.env.BARK_PUSH = "hTgGQuWEPWNKadaHsu4R6F";
+// process.env.BARK_PUSH = "hTgGQuWEPWNKadaHsu4R6F";
 process.env.SCKEY = "SCU69645T751603996ddcb96a66fe98a2087d89fb5dfaf35ad83fc";
 process.env.TG_BOT_TOKEN = "1494827339:AAEEI6Nod-ezVV-ZlwG2Jv4kQWNnCeDJBWU";
 // process.env.TG_USER_ID = "1033848496";
