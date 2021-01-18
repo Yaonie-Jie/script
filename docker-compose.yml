@@ -24,6 +24,8 @@ services:
       - JD_JOY_REWARD_NAME=20
         #东东工厂心仪商品
       - FACTORAY_WANTPRODUCT_NAME=投影仪
+        #京小超兑换
+      - MARKET_COIN_TO_BEANS=纯甄
         #签到结果简洁通知
       - JD_BEAN_SIGN_NOTIFY_SIMPLE=true
         #挂载自定义cron
@@ -40,7 +42,7 @@ services:
       - BOOKSHOP_SHARECODES=ba479feb9ed8416fb55aab76a82dd045
         #东东农场互助码
       - FRUITSHARECODES=76d3727f1c154d1baff411fbdf43fc94@8bf03a4fe64f4a32823e473a06d06fb8@8eb2ec97fe9d47f9a5a94ba7e32b2163&76d3727f1c154d1baff411fbdf43fc94@8bf03a4fe64f4a32823e473a06d06fb8@8eb2ec97fe9d47f9a5a94ba7e32b2163&76d3727f1c154d1baff411fbdf43fc94@8bf03a4fe64f4a32823e473a06d06fb8@8eb2ec97fe9d47f9a5a94ba7e32b2163
-      #炸年兽互助码
+        #炸年兽互助码
       - JDNIAN_SHARECODES=cgxZdTXtIO-L413ODwb75rpMyO_31CBt-w2khYD2ISn8s2apIJOE9hsgDNw@cgxZdTXtY8SkikqqTFTNu9Mx2i0Egp8bAJOqOEkRWULsKfnYU7R7sKY&cgxZdTXtIO-L413ODwb75rpMyO_31CBt-w2khYD2ISn8s2apIJOE9hsgDNw@cgxZdTXtY8SkikqqTFTNu9Mx2i0Egp8bAJOqOEkRWULsKfnYU7R7sKY&cgxZdTXtIO-L413ODwb75rpMyO_31CBt-w2khYD2ISn8s2apIJOE9hsgDNw@cgxZdTXtY8SkikqqTFTNu9Mx2i0Egp8bAJOqOEkRWULsKfnYU7R7sKY
   jd_scripts2: #胖墩&王硕&妈妈&王硕&姐姐&姐夫
     image: zhangyujie666/jds

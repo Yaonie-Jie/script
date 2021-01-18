@@ -6,7 +6,5 @@
 45 9 * * * /root/.nvm/versions/node/v14.15.1/bin/node /root/script/src/kuaishou.js >> /root/script/log/kuaishou.log 2>&1
 #今日头条
 5,35 8-23 * * * /root/.nvm/versions/node/v14.15.1/bin/node /root/script/src/jrtt.js >> /root/script/log/jrtt.log 2>&1
-#笑谱
-*/10 * * * * /root/.nvm/versions/node/v14.15.1/bin/node /root/script/src/xp.js >> /root/script/log/xp.log 2>&1
 
 55 23 * * * rm -rf /root/script/log/*.log
