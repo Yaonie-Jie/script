@@ -84,7 +84,10 @@ function out(type) {
 }
 console.log("种豆\n", out("zd"));
 console.log("农场\n", out("nc"));
+console.log("东东萌宠\n", out("mc"));
 console.log("惊喜工厂\n", out("jxgc"));
+
+
 
 
 
