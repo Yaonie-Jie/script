@@ -50,7 +50,7 @@ services:
       - FRUITSHARECODES=76d3727f1c154d1baff411fbdf43fc94@8bf03a4fe64f4a32823e473a06d06fb8@8eb2ec97fe9d47f9a5a94ba7e32b2163&76d3727f1c154d1baff411fbdf43fc94@8bf03a4fe64f4a32823e473a06d06fb8@8eb2ec97fe9d47f9a5a94ba7e32b2163&76d3727f1c154d1baff411fbdf43fc94@8bf03a4fe64f4a32823e473a06d06fb8@8eb2ec97fe9d47f9a5a94ba7e32b2163
         #炸年兽互助码
       - JDNIAN_SHARECODES=cgxZdTXtIO-L413ODwb75rpMyO_31CBt-w2khYD2ISn8s2apIJOE9hsgDNw@cgxZdTXtY8SkikqqTFTNu9Mx2i0Egp8bAJOqOEkRWULsKfnYU7R7sKY&cgxZdTXtIO-L413ODwb75rpMyO_31CBt-w2khYD2ISn8s2apIJOE9hsgDNw@cgxZdTXtY8SkikqqTFTNu9Mx2i0Egp8bAJOqOEkRWULsKfnYU7R7sKY&cgxZdTXtIO-L413ODwb75rpMyO_31CBt-w2khYD2ISn8s2apIJOE9hsgDNw@cgxZdTXtY8SkikqqTFTNu9Mx2i0Egp8bAJOqOEkRWULsKfnYU7R7sKY
-  jd_scripts2: #胖墩&王硕&妈妈&王硕&姐姐&姐夫
+  jd_scripts2: #胖墩&妈妈&王硕&姐姐&姐夫
     image: zhangyujie666/jds
     restart: always
     container_name: jd_scripts2
@@ -62,7 +62,7 @@ services:
     environment:
         #挂载自定义sh
       - CUSTOM_SHELL_FILE=/scripts/xiaoyu/shell_script_mod.sh
-      - JD_COOKIE=pt_key=AAJf6xmUADAGcKknPeebo7PYtsc4EaFwRTudhQwi0J8XA2w21d_rI9hUe4SVmOxGjKJ9MSj3lC4;pt_pin=jd_4ea9c773b942b&pt_key=AAJgDrN1ADBzgcznsxrmHnliw0ASgicmSD30X8PpQSP0z3aINgCdR33_Z6vJjtlRNh7BI52TVLM;pt_pin=jd_4187a2b60c619&pt_key=AAJf-7w4ADA9pHw6GvWXfl-nM10YGmAxllZ3OGGhLHKdmhkpv9xZLgqpr4qGGfpNtLSXcdTBHSk;pt_pin=jd_wNNPtStaTdWX&pt_key=AAJgDppvADC2goO2l-Z5sE_ZgihkuhYO1yA049_aqQW0op42eSnXJM7pcy2oOCn-B5pVB7Z7KME;pt_pin=jd_59cc8f9ce40bd&pt_key=AAJf-V-XADDC_U6pMCyuny5MMlJah9QIm5abHYiTtMbD5IRsbSo00afL8Hu28FvIZSuiq1Lck_c;pt_pin=LemonCC1018&pt_key=AAJf-WuCADDiLYmrwO85PPlZf_iNx1MTToeUFa7ZNDXtn30Rie9ECTfo5jeadzr0tvwuAs20EDI;pt_pin=ming121038673;
+      - JD_COOKIE=pt_key=AAJf6xmUADAGcKknPeebo7PYtsc4EaFwRTudhQwi0J8XA2w21d_rI9hUe4SVmOxGjKJ9MSj3lC4;pt_pin=jd_4ea9c773b942b&pt_key=AAJf-7w4ADA9pHw6GvWXfl-nM10YGmAxllZ3OGGhLHKdmhkpv9xZLgqpr4qGGfpNtLSXcdTBHSk;pt_pin=jd_wNNPtStaTdWX&pt_key=AAJgDppvADC2goO2l-Z5sE_ZgihkuhYO1yA049_aqQW0op42eSnXJM7pcy2oOCn-B5pVB7Z7KME;pt_pin=jd_59cc8f9ce40bd&pt_key=AAJf-V-XADDC_U6pMCyuny5MMlJah9QIm5abHYiTtMbD5IRsbSo00afL8Hu28FvIZSuiq1Lck_c;pt_pin=LemonCC1018&pt_key=AAJf-WuCADDiLYmrwO85PPlZf_iNx1MTToeUFa7ZNDXtn30Rie9ECTfo5jeadzr0tvwuAs20EDI;pt_pin=ming121038673;
       - DD_BOT_TOKEN=3d604445f0bbbb129185d0d244a218407f23630905276cb06eb0774fe012c689
       - DD_BOT_SECRET=SEC93c1887a89a0af24e25e1a742fc108fceeacaa0254fc158c50c3c1cc7bdfb362
       - UN_SUBSCRIBES=100&100&iPhone12&Apple京东自营旗舰店
