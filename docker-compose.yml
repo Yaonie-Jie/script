@@ -11,7 +11,7 @@ services:
       - ./logs1:/scripts/logs
     environment:
         #挂载自定义sh
-      - CUSTOM_SHELL_FILE=/scripts/xiaoyu/shell_script_mod.sh
+      # - CUSTOM_SHELL_FILE=/scripts/xiaoyu/shell_script_mod.sh
       - JD_COOKIE=pt_key=AAJgBnwZADAdAlkguKXh2Y7ME2gUW_yfhTepI7a4l5CVKHTPrIjmVjaxymZOwfcQHcL1T3_at-I;pt_pin=993406467_m&pt_key=AAJgDpinADDHc66d9K4IvNkBhED7QZ8DqB_z3Dn66YBVig9GAzTFmZClWWgdox35SFtI3qPegb0;pt_pin=jd_74d1b00658634&pt_key=AAJf_m4DADBo1zFk5iu1XOQPxCEZcTmrDeeIOHpnrGMm6gndgO_MVHgUiq8b0CzWFnv5ljRSm9A;pt_pin=jd_HJvpwrDqLEqJ;
       - DD_BOT_TOKEN=3d604445f0bbbb129185d0d244a218407f23630905276cb06eb0774fe012c689
       - DD_BOT_SECRET=SEC93c1887a89a0af24e25e1a742fc108fceeacaa0254fc158c50c3c1cc7bdfb362
@@ -63,7 +63,7 @@ services:
       - ./logs2:/scripts/logs
     environment:
         #挂载自定义sh
-      - CUSTOM_SHELL_FILE=/scripts/xiaoyu/shell_script_mod.sh
+      # - CUSTOM_SHELL_FILE=/scripts/xiaoyu/shell_script_mod.sh
       - JD_COOKIE=pt_key=AAJf6xmUADAGcKknPeebo7PYtsc4EaFwRTudhQwi0J8XA2w21d_rI9hUe4SVmOxGjKJ9MSj3lC4;pt_pin=jd_4ea9c773b942b&pt_key=AAJf-7w4ADA9pHw6GvWXfl-nM10YGmAxllZ3OGGhLHKdmhkpv9xZLgqpr4qGGfpNtLSXcdTBHSk;pt_pin=jd_wNNPtStaTdWX&pt_key=AAJgDppvADC2goO2l-Z5sE_ZgihkuhYO1yA049_aqQW0op42eSnXJM7pcy2oOCn-B5pVB7Z7KME;pt_pin=jd_59cc8f9ce40bd&pt_key=AAJf-V-XADDC_U6pMCyuny5MMlJah9QIm5abHYiTtMbD5IRsbSo00afL8Hu28FvIZSuiq1Lck_c;pt_pin=LemonCC1018&pt_key=AAJf-WuCADDiLYmrwO85PPlZf_iNx1MTToeUFa7ZNDXtn30Rie9ECTfo5jeadzr0tvwuAs20EDI;pt_pin=ming121038673;
       - DD_BOT_TOKEN=3d604445f0bbbb129185d0d244a218407f23630905276cb06eb0774fe012c689
       - DD_BOT_SECRET=SEC93c1887a89a0af24e25e1a742fc108fceeacaa0254fc158c50c3c1cc7bdfb362
