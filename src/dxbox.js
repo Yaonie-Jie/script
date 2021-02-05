@@ -1,3 +1,20 @@
-let a = {"Accept": "*/*","Accept-Encoding": "br, gzip, deflate","Accept-Language": "zh-Hans-CN;q=1","Connection": "keep-alive","Content-Type": "application/json; charset=utf-8","Host": "veishop.iboxpay.com","User-Agent": "VeiShop, 1.4.4 (iOS, 12.5.1, zh_CN, Apple, iPhone, 9AD90C12-D759-4742-9DF3-2129622147EA)","X-User-Agent": "VeiShop, 1.4.4 (iOS, 12.5.1, zh_CN, Apple, iPhone, 9AD90C12-D759-4742-9DF3-2129622147EA)","mchtNo": "100529600058887","shopkeeperId": "1148855820752977920","source": "VEISHOP_APP_IOS","token": "b843811c251343d78f1d4a4dd8e29089","traceid": "3135048440367014707216120698801642bfa26fca4b8","version": "1.4.4",}
+let a = {
+  Accept: "*/*",
+  "Accept-Encoding": "gzip, deflate, br",
+  "Accept-Language": "zh-Hans-CN;q=1, en-CN;q=0.9",
+  Connection: "keep-alive",
+  "Content-Type": "application/json; charset=utf-8",
+  Host: "veishop.iboxpay.com",
+  "User-Agent":
+    "VeiShop, 1.4.4 (iOS, 14.3, zh_CN, Apple, iPhone, F30626AF-2CC3-4C2F-872D-164B6F3CE8CF)",
+  "X-User-Agent":
+    "VeiShop, 1.4.4 (iOS, 14.3, zh_CN, Apple, iPhone, F30626AF-2CC3-4C2F-872D-164B6F3CE8CF)",
+  mchtNo: "100529600058887",
+  shopkeeperId: "1148855820752977920",
+  source: "VEISHOP_APP_IOS",
+  token: "0e58b08c9a414022a5b9594ece54eccd",
+  traceid: "3135046887621832704016125111901982bfa26fca4b8",
+  version: "1.4.4",
+};
 
 console.log(JSON.stringify(a));
