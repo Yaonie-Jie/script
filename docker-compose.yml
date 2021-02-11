@@ -64,7 +64,7 @@ services:
     environment:
         #挂载自定义sh
       # - CUSTOM_SHELL_FILE=/scripts/xiaoyu/shell_script_mod.sh
-      - JD_COOKIE=pt_key=AAJgEtfaADCmERmBbU1l7TwAdItEkkQtr6CloNZssMYef2sBeB5BjM5RbBoCLNZZ9l-FV4BVAa0;pt_pin=jd_4ea9c773b942b&pt_key=AAJf-7w4ADA9pHw6GvWXfl-nM10YGmAxllZ3OGGhLHKdmhkpv9xZLgqpr4qGGfpNtLSXcdTBHSk;pt_pin=jd_wNNPtStaTdWX;
+      - JD_COOKIE=pt_key=AAJgEtfaADCmERmBbU1l7TwAdItEkkQtr6CloNZssMYef2sBeB5BjM5RbBoCLNZZ9l-FV4BVAa0;pt_pin=jd_4ea9c773b942b;
       - DD_BOT_TOKEN=3d604445f0bbbb129185d0d244a218407f23630905276cb06eb0774fe012c689
       - DD_BOT_SECRET=SEC93c1887a89a0af24e25e1a742fc108fceeacaa0254fc158c50c3c1cc7bdfb362
       - UN_SUBSCRIBES=100&100&iPhone12&Apple京东自营旗舰店
