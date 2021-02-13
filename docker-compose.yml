@@ -38,6 +38,8 @@ services:
       - CUSTOM_LIST_FILE=my_crontab_list.sh
         #东东工厂 不运行
       - JDFACTORY_FORBID_ACCOUNT=1&2
+        #京喜工厂 不运行
+      - DREAMFACTORY_FORBID_ACCOUNT=3
         #疯狂的joy开启循环助力
       - JDJOY_HELPSELF=true
         #疯狂的JOY购买等级
