@@ -66,7 +66,7 @@ services:
     environment:
         #挂载自定义sh
       # - CUSTOM_SHELL_FILE=/scripts/xiaoyu/shell_script_mod.sh
-      - JD_COOKIE=pt_key=AAJgEtfaADCmERmBbU1l7TwAdItEkkQtr6CloNZssMYef2sBeB5BjM5RbBoCLNZZ9l-FV4BVAa0;pt_pin=jd_4ea9c773b942b&pt_key=AAJgJSRLADAIxGhiE7oG2lVKIF9AJtAOj__l9qOmt2sydjzlV-me_F0TMAZSo9fPOYCS3xCPctg;pt_pin=jd_wNNPtStaTdWX&pt_key=AAJgJSUnADBML9oPArM63xFkPjZ4ox_H3SoaMaU7SbwQj_ANYpiveU8PrHudR_OxURudfbdJHMc;pt_pin=jd_4187a2b60c619&pt_key=AAJgKT7BADDEioOTd2bTfCaDp3Xwc43dQKnnnkAL_u9sOsxGqq3L1TkT6sLGS1qMIQ60JBWNqiw;pt_pin=jd_4187a2b60c619;
+      - JD_COOKIE=pt_key=AAJgEtfaADCmERmBbU1l7TwAdItEkkQtr6CloNZssMYef2sBeB5BjM5RbBoCLNZZ9l-FV4BVAa0;pt_pin=jd_4ea9c773b942b&pt_key=AAJgJSRLADAIxGhiE7oG2lVKIF9AJtAOj__l9qOmt2sydjzlV-me_F0TMAZSo9fPOYCS3xCPctg;pt_pin=jd_wNNPtStaTdWX&pt_key=AAJgKT7BADDEioOTd2bTfCaDp3Xwc43dQKnnnkAL_u9sOsxGqq3L1TkT6sLGS1qMIQ60JBWNqiw;pt_pin=jd_4187a2b60c619&pt_key=AAJgKT-HADChJtJOkGN8Yxwq6BmD3Jk6q32uZcZMVdWfT3O58SZyhycUQv0UxwdNSeWi06xduqo;pt_pin=jd_59cc8f9ce40bd;
       - DD_BOT_TOKEN=3d604445f0bbbb129185d0d244a218407f23630905276cb06eb0774fe012c689
       - DD_BOT_SECRET=SEC93c1887a89a0af24e25e1a742fc108fceeacaa0254fc158c50c3c1cc7bdfb362
       - UN_SUBSCRIBES=100&100&iPhone12&Apple京东自营旗舰店
