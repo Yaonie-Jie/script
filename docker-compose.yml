@@ -26,8 +26,6 @@ services:
       - PET_NOTIFY_CONTROL=true
         #宠汪汪喂食数量
       - JOY_FEED_COUNT=40
-        #宠汪汪积分兑换多少京豆
-      - JD_JOY_REWARD_NAME=20
         #东东工厂心仪商品
       - FACTORAY_WANTPRODUCT_NAME=投影仪
         #京小超兑换
