@@ -10,6 +10,8 @@ services:
       - ./src:/scripts/xiaoyu
       - ./logs1:/scripts/logs
     environment:
+        #脚本更新仓库地址，配置了会切换到对应的地址
+      - REPO_URL=git@gitee.com:lxk0301/jd_scripts.git
         #挂载自定义sh
       # - CUSTOM_SHELL_FILE=/scripts/xiaoyu/shell_script_mod.sh
       - JD_COOKIE=pt_key=AAJgLhmGADBnU4M6qnqj8G0TPo--ITd4I_s25bZLmUts4R9vZr10Rj1ISalwNDNOYj864UoJsuw;pt_pin=993406467_m&pt_key=AAJgDpinADDHc66d9K4IvNkBhED7QZ8DqB_z3Dn66YBVig9GAzTFmZClWWgdox35SFtI3qPegb0;pt_pin=jd_74d1b00658634&pt_key=AAJgJlGfADA0_yH0FDBdpj91Gs3XIQHFiMCA-PF-vRU9_h4C-sQu7YIrudhA-_Ci59suLpOXjAs;pt_pin=jd_HJvpwrDqLEqJ;
@@ -21,7 +23,7 @@ services:
         #不执行的脚本
       - DO_NOT_RUN_SCRIPTS=jd_bj.js&jd_xxl_gh.js&jd_xxl.js&jd_gyec.js  
         #农场使用水滴换豆卡
-      - FRUIT_BEAN_CARD=true
+      - FRUIT_BEAN_CARD=false
         #萌宠是否静默运行
       - PET_NOTIFY_CONTROL=true
         #宠汪汪喂食数量
@@ -60,6 +62,8 @@ services:
       - ./src:/scripts/xiaoyu
       - ./logs2:/scripts/logs
     environment:
+        #脚本更新仓库地址，配置了会切换到对应的地址
+      - REPO_URL=git@gitee.com:lxk0301/jd_scripts.git
         #挂载自定义sh
       # - CUSTOM_SHELL_FILE=/scripts/xiaoyu/shell_script_mod.sh
       - JD_COOKIE=pt_key=AAJgEtfaADCmERmBbU1l7TwAdItEkkQtr6CloNZssMYef2sBeB5BjM5RbBoCLNZZ9l-FV4BVAa0;pt_pin=jd_4ea9c773b942b&pt_key=AAJgJSRLADAIxGhiE7oG2lVKIF9AJtAOj__l9qOmt2sydjzlV-me_F0TMAZSo9fPOYCS3xCPctg;pt_pin=jd_wNNPtStaTdWX&pt_key=AAJgKT7BADDEioOTd2bTfCaDp3Xwc43dQKnnnkAL_u9sOsxGqq3L1TkT6sLGS1qMIQ60JBWNqiw;pt_pin=jd_4187a2b60c619&pt_key=AAJgKT-HADChJtJOkGN8Yxwq6BmD3Jk6q32uZcZMVdWfT3O58SZyhycUQv0UxwdNSeWi06xduqo;pt_pin=jd_59cc8f9ce40bd&pt_key=AAJgMf28ADDE1Ipzz0S7VWLSzq_VuXba7ICmc9Lx6dKeMJg_xnQBQ_b-bbv_4C-4OYvduYSXqqw;pt_pin=LemonCC1018;
@@ -71,7 +75,7 @@ services:
         #不执行的脚本
       - DO_NOT_RUN_SCRIPTS=jd_bj.js&jd_xxl_gh.js&jd_xxl.js&jd_gyec.js  
         #农场使用水滴换豆卡
-      - FRUIT_BEAN_CARD= true
+      - FRUIT_BEAN_CARD=true
         #萌宠是否静默运行
       - PET_NOTIFY_CONTROL=true
         #宠汪汪喂食数量
@@ -84,7 +88,7 @@ services:
         #挂载自定义cron
       - CUSTOM_LIST_FILE=my_crontab_list.sh
         #京喜工厂 不运行
-      - DREAMFACTORY_FORBID_ACCOUNT=1&2
+      #- DREAMFACTORY_FORBID_ACCOUNT=1&2
         #种豆得豆互助码
       - PLANT_BEAN_SHARECODES=b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy&b6xxkujlkjykfriicy7emnyhbm@x3x7xhsua3bmimhz52vugklnh44xq65ksalcx7a@4npkonnsy7xi2mbgrx7s7k4kc5ibhk5m7ifbjyy
       - DDFACTORY_SHARECODES=P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg&P04z54XCjVWnYaS5jwBC2T423hMkgs0@P04z54XCjVWnYaS5m9cZxiCmzwN1_z096HAMA@P04z54XCjVWnYaS5m9cZ2f8iX0YlZU5h5Nk2Dg
