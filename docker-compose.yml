@@ -14,7 +14,7 @@ services:
       - REPO_URL=git@gitee.com:lxk0301/jd_scripts.git
         #挂载自定义sh
       # - CUSTOM_SHELL_FILE=/scripts/xiaoyu/shell_script_mod.sh
-      - JD_COOKIE=pt_key=AAJgLhmGADBnU4M6qnqj8G0TPo--ITd4I_s25bZLmUts4R9vZr10Rj1ISalwNDNOYj864UoJsuw;pt_pin=993406467_m&pt_key=AAJgDpinADDHc66d9K4IvNkBhED7QZ8DqB_z3Dn66YBVig9GAzTFmZClWWgdox35SFtI3qPegb0;pt_pin=jd_74d1b00658634&pt_key=AAJgJlGfADA0_yH0FDBdpj91Gs3XIQHFiMCA-PF-vRU9_h4C-sQu7YIrudhA-_Ci59suLpOXjAs;pt_pin=jd_HJvpwrDqLEqJ;
+      - JD_COOKIE=pt_key=AAJgLhmGADBnU4M6qnqj8G0TPo--ITd4I_s25bZLmUts4R9vZr10Rj1ISalwNDNOYj864UoJsuw;pt_pin=993406467_m&pt_key=AAJgNibNADCjqmwe1hz_nbaQ_iX-eHwS2l2vUXg4-c2SfjgGiXAa8OPzZImIjuyNmTwF-jAMkiU;pt_pin=jd_74d1b00658634;&pt_key=AAJgJlGfADA0_yH0FDBdpj91Gs3XIQHFiMCA-PF-vRU9_h4C-sQu7YIrudhA-_Ci59suLpOXjAs;pt_pin=jd_HJvpwrDqLEqJ;
       - DD_BOT_TOKEN=3d604445f0bbbb129185d0d244a218407f23630905276cb06eb0774fe012c689
       - DD_BOT_SECRET=SEC93c1887a89a0af24e25e1a742fc108fceeacaa0254fc158c50c3c1cc7bdfb362
       - UN_SUBSCRIBES=100&100&iPhone12&Apple京东自营旗舰店
