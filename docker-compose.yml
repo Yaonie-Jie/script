@@ -21,9 +21,9 @@ services:
         #UA
       - JD_USER_AGENT=jdapp;iPhone;9.3.4;14.3;10302de0cff3d1d0d4b990d4cf729e2eac390594;network/4g;ADID/533BC320-CE01-4818-B7D7-9EF43517A1D0;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone12,1;addressid/3409494263;supportBestPay/0;appBuild/167502;jdSupportDarkMode/0;pv/345.28;apprpd/MyJD_Main;ref/MyJdMTAManager;psq/4;ads/;psn/10302de0cff3d1d0d4b990d4cf729e2eac390594|1112;jdv/0|iosapp|t_335139774|appshare|Wxfriends|1610496362812|1610496398;adk/;app_device/IOS;pap/JA2015_311210|9.3.4|IOS 14.3;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1
         #不执行的脚本
-      - DO_NOT_RUN_SCRIPTS=jd_bj.js&jd_xxl_gh.js&jd_xxl.js&jd_gyec.js  
+      - DO_NOT_RUN_SCRIPTS=jd_bj.js&jd_xxl_gh.js&jd_xxl.js&jd_gyec.js&jd_jxnc.js
         #农场使用水滴换豆卡
-      - FRUIT_BEAN_CARD=false
+      #- FRUIT_BEAN_CARD=true
         #萌宠是否静默运行
       - PET_NOTIFY_CONTROL=true
         #宠汪汪喂食数量
@@ -73,9 +73,9 @@ services:
         #UA
       - JD_USER_AGENT=jdapp;iPhone;9.3.4;14.3;10302de0cff3d1d0d4b990d4cf729e2eac390594;network/4g;ADID/533BC320-CE01-4818-B7D7-9EF43517A1D0;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone12,1;addressid/3409494263;supportBestPay/0;appBuild/167502;jdSupportDarkMode/0;pv/345.28;apprpd/MyJD_Main;ref/MyJdMTAManager;psq/4;ads/;psn/10302de0cff3d1d0d4b990d4cf729e2eac390594|1112;jdv/0|iosapp|t_335139774|appshare|Wxfriends|1610496362812|1610496398;adk/;app_device/IOS;pap/JA2015_311210|9.3.4|IOS 14.3;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1
         #不执行的脚本
-      - DO_NOT_RUN_SCRIPTS=jd_bj.js&jd_xxl_gh.js&jd_xxl.js&jd_gyec.js  
+      - DO_NOT_RUN_SCRIPTS=jd_bj.js&jd_xxl_gh.js&jd_xxl.js&jd_gyec.js&jd_jxnc.js
         #农场使用水滴换豆卡
-      - FRUIT_BEAN_CARD=true
+      #- FRUIT_BEAN_CARD=true
         #萌宠是否静默运行
       - PET_NOTIFY_CONTROL=true
         #宠汪汪喂食数量
