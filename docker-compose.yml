@@ -52,7 +52,7 @@ services:
       - BOOKSHOP_SHARECODES=ba479feb9ed8416fb55aab76a82dd045
         #东东农场互助码
       - FRUITSHARECODES=76d3727f1c154d1baff411fbdf43fc94@8bf03a4fe64f4a32823e473a06d06fb8@8eb2ec97fe9d47f9a5a94ba7e32b2163&76d3727f1c154d1baff411fbdf43fc94@8bf03a4fe64f4a32823e473a06d06fb8@8eb2ec97fe9d47f9a5a94ba7e32b2163&76d3727f1c154d1baff411fbdf43fc94@8bf03a4fe64f4a32823e473a06d06fb8@8eb2ec97fe9d47f9a5a94ba7e32b2163
-  jd_scripts2: #胖墩&妈妈&王硕&姐姐
+  jd_scripts2: #胖墩&妈妈&王硕&姐姐&王硕同学
     image: lxk0301/jd_scripts
     restart: always
     container_name: jd_scripts2
@@ -66,7 +66,7 @@ services:
       - REPO_URL=git@gitee.com:lxk0301/jd_scripts.git
         #挂载自定义sh
       # - CUSTOM_SHELL_FILE=/scripts/xiaoyu/shell_script_mod.sh
-      - JD_COOKIE=pt_key=AAJgOuz_ADBSKAwLJvOSXhXBgxPkBrAM9VO0PTcBVBW971EX2Edm_ZBGHl6SocW6XmzEHHSXgnU;pt_pin=jd_4ea9c773b942b&pt_key=AAJgJSRLADAIxGhiE7oG2lVKIF9AJtAOj__l9qOmt2sydjzlV-me_F0TMAZSo9fPOYCS3xCPctg;pt_pin=jd_wNNPtStaTdWX&pt_key=AAJgKT7BADDEioOTd2bTfCaDp3Xwc43dQKnnnkAL_u9sOsxGqq3L1TkT6sLGS1qMIQ60JBWNqiw;pt_pin=jd_4187a2b60c619&pt_key=AAJgKT-HADChJtJOkGN8Yxwq6BmD3Jk6q32uZcZMVdWfT3O58SZyhycUQv0UxwdNSeWi06xduqo;pt_pin=jd_59cc8f9ce40bd&pt_key=AAJgMf28ADDE1Ipzz0S7VWLSzq_VuXba7ICmc9Lx6dKeMJg_xnQBQ_b-bbv_4C-4OYvduYSXqqw;pt_pin=LemonCC1018;
+      - JD_COOKIE=pt_key=AAJgOuz_ADBSKAwLJvOSXhXBgxPkBrAM9VO0PTcBVBW971EX2Edm_ZBGHl6SocW6XmzEHHSXgnU;pt_pin=jd_4ea9c773b942b&pt_key=AAJgJSRLADAIxGhiE7oG2lVKIF9AJtAOj__l9qOmt2sydjzlV-me_F0TMAZSo9fPOYCS3xCPctg;pt_pin=jd_wNNPtStaTdWX&pt_key=AAJgKT7BADDEioOTd2bTfCaDp3Xwc43dQKnnnkAL_u9sOsxGqq3L1TkT6sLGS1qMIQ60JBWNqiw;pt_pin=jd_4187a2b60c619&pt_key=AAJgKT-HADChJtJOkGN8Yxwq6BmD3Jk6q32uZcZMVdWfT3O58SZyhycUQv0UxwdNSeWi06xduqo;pt_pin=jd_59cc8f9ce40bd&pt_key=AAJgMf28ADDE1Ipzz0S7VWLSzq_VuXba7ICmc9Lx6dKeMJg_xnQBQ_b-bbv_4C-4OYvduYSXqqw;pt_pin=LemonCC1018&pt_key=AAJgO1w_ADAGmIpHJeQYOwBqdLirUapmTyeGS2zWiLeLRJGw4HDLwNI3OniLJk3Rj5LsqHJrbs4;pt_pin=jd_715a53dc16871;
       - DD_BOT_TOKEN=3d604445f0bbbb129185d0d244a218407f23630905276cb06eb0774fe012c689
       - DD_BOT_SECRET=SEC93c1887a89a0af24e25e1a742fc108fceeacaa0254fc158c50c3c1cc7bdfb362
       - UN_SUBSCRIBES=100&100&iPhone12&Apple京东自营旗舰店
