@@ -1,12 +1,9 @@
 [
-    {
-        "username": "手机号（必填）",
-        "password": "服务密码（必填）",
-        "appId": "appId（必填）",
-        "email": "邮箱（选填，不填请删除此行）",
-        "lotteryNum": "抽奖次数（选填，不填请删除此行）",
-        "dingtalkWebhook": "钉钉通知 https://oapi.dingtalk.com/robot/send?access_token=xxxx（选填，不填请删除此行）",
-        "tgToken": "Tg通知 token（选填，不填请删除此行）",
-        "tgUserId": "Tg通知 群组Id（选填，不填请删除此行）"
-    }
+  {
+    "username": "18606506812",
+    "password": "970221",
+    "appId": "d599e6c4238cb46a76affdd536358ebc6531429bb556657b85e059a6f787000e3e397c5a31bc7f7605abf4cba411d1a7ce46265625e11c8e815c3540549a145f108b8683fd5e0ecee9e4d4848fc5514682b13d8c8a0c2716f64f199f2baa902c",
+    "lotteryNum": "10",
+    "dingtalkWebhook": "https://oapi.dingtalk.com/robot/send?access_token=1eafa99da5bef1f7972adc08934b08acfa97a3dc55b4dfef683acf37411df0e7"
+  }
 ]
