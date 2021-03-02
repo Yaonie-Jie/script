@@ -1,5 +1,5 @@
 #喜马拉雅
-*/30 * * * * /usr/bin/python3 /root/script/python/xmly.py >> /root/script/log/xmly.log 2>&1
+*/30 * * * * /usr/bin/python3 /root/script/python/xmly/xmly.py >> /root/script/log/xmly.log 2>&1
 #百度极速版
 */30 6-18 * * * /root/.nvm/versions/node/v14.15.1/bin/node /root/script/src/baidu_speed.js >> /root/script/log/baidu_speed.log 2>&1
 #笑谱
