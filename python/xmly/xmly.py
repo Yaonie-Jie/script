@@ -53,7 +53,7 @@ if "AUTO_TAKE_OUT" in os.environ:
 
 # 自定义设备命名,非必须 ;devices=["iPhone7P","huawei"];与cookiesList对应
 devices = []
-notify_time = 17                            # 通知时间,24小时制,默认19
+notify_time = 23                            # 通知时间,24小时制,默认19
 XMLY_ACCUMULATE_TIME = 1                    # 希望刷时长的,此处置1,默认打开;关闭置0
 UserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 iting/1.0.12 kdtunion_iting/1.0 iting(main)/1.0.12/ios_1"
 # 非iOS设备的需要的自行修改,自己抓包 与cookie形式类似
@@ -1044,7 +1044,7 @@ def run():
     for k, v in enumerate(cookiesList):
         print(f">>>>>>>【账号开始{k+1}】\n")
         cookies = str2dict(v)
-        # user_info_res = user_info(cookies)
+        user_info_res = user_info(cookies)
         if XMLY_ACCUMULATE_TIME == 1:
             saveListenTime(cookies, date_stamp)
             listenData(cookies, date_stamp)
@@ -1067,8 +1067,8 @@ def run():
         else:
             device = f"设备{k+1}"
 
-        table.append(device, total, todayTotal,
-                      historyTotal, continuousDays,)
+        table.append((user_info_res['nickname'], total, todayTotal,
+                      historyTotal, continuousDays,))
 
         if autoTakeOut and total >= amount:
             pay_info = third_pay_info(cookies)
