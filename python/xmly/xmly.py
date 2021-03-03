@@ -1068,7 +1068,7 @@ def run():
             device = f"设备{k+1}"
 
         table.append(device, total, todayTotal,
-                      historyTotal, continuousDays,))
+                      historyTotal, continuousDays,)
 
         if autoTakeOut and total >= amount:
             pay_info = third_pay_info(cookies)
