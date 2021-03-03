@@ -11,6 +11,6 @@
 #悦动族
 0,30 0-23 * * * /root/.nvm/versions/node/v14.15.1/bin/node /root/script/src/yuedongzu.js >> /root/script/log/yuedongzu.log 2>&1
 #联通签到
-3 16 * * * /usr/bin/python3 /root/script/python/unicomTask/main.py >> /root/script/log/unicomTask.log 2>&1
+3 0 * * * cd /root/script/python/unicomTask/ && /usr/bin/python3 /root/script/python/unicomTask/main.py >> /root/script/log/unicomTask.log 2>&1
 
 55 23 * * * rm -rf /root/script/log/*.log
