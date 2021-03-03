@@ -54,7 +54,9 @@ const $ = Env("悦动族");
 $.idx = ($.idx = ($.getval('yuedongzuSuffix') || '1') - 1) > 0 ? ($.idx + 1 + '') : ''; // 账号扩展字符
 const notify = $.isNode() ? require("../utils/sendNotify") : ``;
 const COOKIE ={
-    yuedongzutokenVal:`Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wveXVlZG9uZ3p1LnlpY2hlbmd3LmNuXC9hcHBzXC9sb2dpblwvd2VjaGF0IiwiaWF0IjoxNjE0NzQ4NDQ4LCJleHAiOjIwNTM2MzQ4NDQ4LCJuYmYiOjE2MTQ3NDg0NDgsImp0aSI6IkNGUms0MHdFWklUcldpODIiLCJzdWIiOjMzNzg0LCJwcnYiOiI0MWRmODgzNGYxYjk4ZjcwZWZhNjBhYWVkZWY0MjM0MTM3MDA2OTBjIn0.UZ_MoMb2hsnc_v5E2N64ACF8cH-MH8Bl9-HYIj761s0`
+    yuedongzutokenVal:`Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wveXVlZG9uZ3p1LnlpY2hlbmd3LmNuXC9hcHBzXC9sb2dpblwvd2VjaGF0IiwiaWF0IjoxNjE0NzQ4NDQ4LCJleHAiOjIwNTM2MzQ4NDQ4LCJuYmYiOjE2MTQ3NDg0NDgsImp0aSI6IkNGUms0MHdFWklUcldpODIiLCJzdWIiOjMzNzg0LCJwcnYiOiI0MWRmODgzNGYxYjk4ZjcwZWZhNjBhYWVkZWY0MjM0MTM3MDA2OTBjIn0.UZ_MoMb2hsnc_v5E2N64ACF8cH-MH8Bl9-HYIj761s0
+    Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wveXVlZG9uZ3p1LnlpY2hlbmd3LmNuXC9hcHBzXC9sb2dpblwvd2VjaGF0IiwiaWF0IjoxNjE0NzUxNzU0LCJleHAiOjIwNTM2MzUxNzU0LCJuYmYiOjE2MTQ3NTE3NTQsImp0aSI6ImRqRkNXRFkxcnZVNnF0OTYiLCJzdWIiOjMzODgxLCJwcnYiOiI0MWRmODgzNGYxYjk4ZjcwZWZhNjBhYWVkZWY0MjM0MTM3MDA2OTBjIn0.AcWM7kM0K7RJPeI-K8I9h3y-2HkQOlkAp03roJYcQrs`
+
 };
 const logs = 0; // 0为关闭日志，1为开启
 const notifyttt = 1 // 0为关闭外部推送，1为12 23 点外部推送
